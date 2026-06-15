@@ -1,0 +1,117 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+frontend/.env
+backend/.env
+
+# =========================
+# Build / Production
+# =========================
+dist/
+build/
+coverage/
+
+# =========================
+# Vite
+# =========================
+.vite/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Runtime Files
+# =========================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Operating System
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Testing
+# =========================
+coverage/
+.nyc_output/
+
+# =========================
+# Jest
+# =========================
+jest-results.json
+
+# =========================
+# Cypress
+# =========================
+cypress/videos/
+cypress/screenshots/
+
+# =========================
+# MongoDB
+# =========================
+mongodb-data/
+
+# =========================
+# Uploads
+# =========================
+uploads/
+temp/
+tmp/
+
+# =========================
+# Cloudinary local cache
+# =========================
+.cloudinary/
+
+# =========================
+# Package lock files (optionnel)
+# =========================
+# package-lock.json
+# yarn.lock
+
+# =========================
+# Frontend build
+# =========================
+frontend/dist/
+
+# =========================
+# Backend coverage
+# =========================
+backend/coverage/
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.zip
+*.tar.gz
