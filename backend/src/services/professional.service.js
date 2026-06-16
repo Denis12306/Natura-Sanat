@@ -15,15 +15,28 @@ const createProfile = async (data, userId) => {
   });
 };
 
-const getProfessionals = async () => {
-  return Professional.find()
+const getProfessionals = async (filters) => {
+  const query = {};
+
+  if (filters.city) {
+    query.city = new RegExp(filters.city, "i");
+  }
+
+  if (filters.specialty) {
+    query.specialty = new RegExp(
+      filters.specialty,
+      "i"
+    );
+  }
+
+  return Professional.find(query)
     .populate("user", "firstName lastName email");
 };
-
 const getProfessionalById = async (id) => {
   return Professional.findById(id)
     .populate("user", "firstName lastName email");
 };
+
 
 const updateProfile = async (profileId, user, data) => {
   const profile = await Professional.findById(profileId);

@@ -24,7 +24,9 @@ const createProfile = async (req, res) => {
 
 const getProfessionals = async (req, res) => {
   const professionals =
-    await professionalService.getProfessionals();
+  await professionalService.getProfessionals(
+    req.query
+  );
 
   res.status(200).json({
     success: true,

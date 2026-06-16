@@ -42,3 +42,7 @@ app.use(
   "/api/professionals",
   professionalRoutes
 );
+
+const commentRoutes = require("./routes/comment.routes");
+
+app.use("/api/comments", commentRoutes);
