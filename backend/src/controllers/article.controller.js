@@ -47,6 +47,19 @@ const getArticleById = async (req, res) => {
   });
 };
 
+const getMyArticles = async (req, res) => {
+
+  const articles = await articleService.getMyArticles(
+    req.user._id
+  );
+
+  res.json({
+    success: true,
+    data: articles,
+  });
+
+};
+
 const updateArticle = async (req, res) => {
   try {
     const article = await articleService.updateArticle(
@@ -98,6 +111,7 @@ module.exports = {
   createArticle,
   getArticles,
   getArticleById,
+  getMyArticles,
   updateArticle,
   deleteArticle
 };
