@@ -17,6 +17,17 @@ const getArticleById = async (id) => {
     .populate("author", "firstName lastName");
 };
 
+const getMyArticles = async (userId) => {
+
+  return Article.find({
+    author: userId,
+  }).populate(
+    "author",
+    "firstName lastName"
+  );
+
+};
+
 const updateArticle = async (articleId, user, data) => {
   const article = await Article.findById(articleId);
 
@@ -66,6 +77,7 @@ module.exports = {
   createArticle,
   getArticles,
   getArticleById,
+  getMyArticles,
   updateArticle,
   deleteArticle
 };

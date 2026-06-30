@@ -16,6 +16,13 @@ const {
 
 router.get("/", articleController.getArticles);
 
+router.get(
+  "/me",
+  protect,
+  authorize("professional", "admin"),
+  articleController.getMyArticles
+);
+
 router.get("/:id", articleController.getArticleById);
 
 router.post(

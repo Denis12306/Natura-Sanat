@@ -6,7 +6,7 @@ export default function ProfessionalCard({
   return (
     <div className="border rounded-lg p-4 shadow-md">
       <img
-        src={professional.image}
+        src={professional.image || images.defaultProfessional}
         alt={professional.name}
         className="w-24 h-24 rounded-full object-cover mb-4"
       />

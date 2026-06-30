@@ -24,6 +24,16 @@ const articleSchema = new mongoose.Schema(
       required: true
     },
 
+    image: {
+      type: String,
+      default: "",
+    },
+
+    imagePublicId: {
+      type: String,
+      default: "",
+    },
+    
     published: {
       type: Boolean,
       default: false

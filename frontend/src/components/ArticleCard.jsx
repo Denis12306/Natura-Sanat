@@ -7,6 +7,12 @@ export default function ArticleCard({ article }) {
         {article.title}
       </h2>
 
+    <img
+        src={article.image || images.defaultArticle}
+        alt={article.title}
+        className="w-full h-48 object-cover"
+      />
+
       <p className="text-gray-600 mb-4">
         {article.content?.slice(0, 120)}...
       </p>
