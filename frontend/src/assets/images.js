@@ -6,7 +6,7 @@ const images = {
     "",
 
   hero:
-    "",
+    "https://res.cloudinary.com/ddvpdcluh/image/upload/v1782576123/bundo-kim-ur2zmbseUIA-unsplash_oi3k8d.jpg",
 };
 
 export default images;

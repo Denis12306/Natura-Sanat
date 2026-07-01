@@ -32,6 +32,8 @@ import Profile from "../pages/Dashboard/Professional/Profile";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AdminRoute from "../components/AdminRoute";
 
+import AboutPage from "../pages/About/AboutPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -179,6 +181,13 @@ const router = createBrowserRouter([
             <AdProfessionalsPage />
           </AdminRoute>
         ),
+      },
+
+      /* ================= ABOUT ================= */
+      
+      {
+        path: "about",
+        element: <AboutPage />,
       },
 
     ],

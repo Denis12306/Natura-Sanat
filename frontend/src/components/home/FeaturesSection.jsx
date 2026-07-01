@@ -23,10 +23,6 @@ export default function FeaturesSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
 
-      <h2 className="mb-12 text-center text-4xl font-bold">
-        Pourquoi Natura Sanat ?
-      </h2>
-
       <div className="grid gap-8 md:grid-cols-3">
 
         {items.map((item) => (
