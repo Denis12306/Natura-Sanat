@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "../../api/axios";
-import ArticleForm from "../../components/forms/ArticleForm";
+import ArticleForm from "../../components/ArticleForm";
 
 export default function EditArticlePage() {
 
@@ -13,46 +13,44 @@ export default function EditArticlePage() {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-
-    const fetchArticle = async () => {
-
-      try {
-
-        const res = await axios.get(`/articles/${id}`);
-
-        setArticle(res.data.data);
-
-      } catch (err) {
-
-        console.error(err);
-
-      }
-
-    };
-
-    fetchArticle();
-
+    loadArticle();
   }, [id]);
 
-  const handleUpdate = async (data) => {
+  async function loadArticle() {
 
     try {
 
-      await axios.put(`/article/${id}`, data);
+      const response = await axios.get(`/articles/${id}`);
 
-      alert("Article modifié.");
+      setArticle(response.data.data);
 
-      navigate("/dashboard/professional/article");
+    } catch (error) {
 
-    } catch (err) {
-
-      console.error(err);
-
-      alert("Erreur.");
+      console.error(error);
 
     }
 
-  };
+  }
+
+  async function handleUpdate(data) {
+
+    try {
+
+      await axios.put(`/articles/${id}`, data);
+
+      alert("Article modifié");
+
+      navigate("/dashboard/professional/articles");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Erreur lors de la modification");
+
+    }
+
+  }
 
   if (!article) {
     return <p>Chargement...</p>;
@@ -60,14 +58,14 @@ export default function EditArticlePage() {
 
   return (
 
-    <div style={{ maxWidth: 700, margin: "40px auto" }}>
+    <div style={{ maxWidth: 900, margin: "40px auto" }}>
 
-      <h1>Modifier l'article</h1>
+      <h1>Modifier un article</h1>
 
       <ArticleForm
         initialValues={article}
         onSubmit={handleUpdate}
-        submitLabel="Enregistrer"
+        submitLabel="Modifier"
       />
 
     </div>

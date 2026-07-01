@@ -7,6 +7,7 @@ import Footer from "../components/layout/Footer";
 import "../styles/layout.css";
 
 export default function MainLayout() {
+
   return (
     <div className="app-layout">
 
@@ -26,4 +27,5 @@ export default function MainLayout() {
 
     </div>
   );
+
 }

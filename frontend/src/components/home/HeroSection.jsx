@@ -1,57 +1,60 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { images } from "@/config/images";
+import images from "../../assets/images";
 
 export default function HeroSection() {
   return (
-    <section className="hero">
+    <section className="bg-green-50">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row">
 
-      <div className="hero-left">
+        <div className="flex-1">
 
-        <span className="hero-badge">
-          🌿 Plateforme de santé naturelle
-        </span>
+          <span className="rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-700">
+            🌿 Santé naturelle
+          </span>
 
-        <h1>
-          Votre bien-être
-          <br />
-          naturellement.
-        </h1>
+          <h1 className="mt-6 text-5xl font-bold leading-tight text-gray-900">
+            Prenez soin de votre santé naturellement.
+          </h1>
 
-        <p>
-          Découvrez des professionnels qualifiés, des formations,
-          des articles et des conseils pour améliorer votre santé
-          grâce aux médecines naturelles.
-        </p>
+          <p className="mt-6 text-lg text-gray-600">
+            Trouvez des professionnels certifiés,
+            découvrez des formations de qualité
+            et apprenez à prendre soin de vous.
+          </p>
 
-        <div className="hero-buttons">
+          <div className="mt-8 flex gap-4">
 
-          <button className="btn-primary">
-            Découvrir
-          </button>
+            <Link
+              to="/professionals"
+              className="rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700"
+            >
+              Trouver un professionnel
+            </Link>
 
-          <button className="btn-secondary">
-            Nos formations
+            <Link
+              to="/courses"
+              className="flex items-center gap-2 rounded-lg border px-6 py-3 hover:bg-white"
+            >
+              Voir les formations
+              <ArrowRight size={18} />
+            </Link>
 
-            <ArrowRight size={18} />
-          </button>
+          </div>
 
         </div>
 
-      </div>
-
-      <div className="hero-right">
-
-        <div className="hero-image-card">
+        <div className="flex-1">
 
           <img
             src={images.hero}
-            alt="Naturopathie"
+            alt="Santé naturelle"
+            className="rounded-3xl shadow-xl"
           />
 
         </div>
 
       </div>
-
     </section>
   );
 }

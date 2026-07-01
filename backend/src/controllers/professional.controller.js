@@ -1,24 +1,54 @@
+const Professional = require("../models/Professional");
+
+const {
+  uploadImage,
+  deleteImage,
+} = require("../services/cloudinary.service");
+
+
 const professionalService = require(
   "../services/professional.service"
 );
 
 const createProfile = async (req, res) => {
   try {
-    const profile = await professionalService.createProfile(
-      req.body,
-      req.user._id
-    );
+
+    let profileImage = "";
+    let profileImagePublicId = "";
+
+    if (req.file) {
+
+      const uploaded = await uploadImage(
+        req.file.buffer,
+        "professionals"
+      );
+
+      profileImage = uploaded.secure_url;
+      profileImagePublicId = uploaded.public_id;
+    }
+
+    const profile =
+      await professionalService.createProfile(
+        {
+          ...req.body,
+          profileImage,
+          profileImagePublicId,
+        },
+        req.user._id
+      );
 
     res.status(201).json({
       success: true,
-      data: profile
+      data: profile,
     });
 
   } catch (error) {
+
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
+
   }
 };
 
@@ -32,6 +62,20 @@ const getProfessionals = async (req, res) => {
     success: true,
     data: professionals
   });
+};
+
+const getMyProfile = async (req,res)=>{
+
+    const profile =
+        await professionalService.getMyProfile(
+            req.user._id
+        );
+
+    res.json({
+        success:true,
+        data:profile
+    });
+
 };
 
 const getProfessionalById = async (req, res) => {
@@ -54,33 +98,94 @@ const getProfessionalById = async (req, res) => {
 };
 
 const updateProfile = async (req, res) => {
+
   try {
+
     const profile =
+      await Professional.findById(req.params.id);
+
+    if (!profile) {
+      return res.status(404).json({
+        success: false,
+        message: "Profil introuvable",
+      });
+    }
+
+    let data = {
+      ...req.body,
+    };
+
+    if (req.file) {
+
+      if (profile.profileImagePublicId) {
+        await deleteImage(
+          profile.profileImagePublicId
+        );
+      }
+
+      const uploaded = await uploadImage(
+        req.file.buffer,
+        "professionals"
+      );
+
+      data.profileImage = uploaded.secure_url;
+      data.profileImagePublicId =
+        uploaded.public_id;
+    }
+
+    const updated =
       await professionalService.updateProfile(
         req.params.id,
         req.user,
-        req.body
+        data
       );
 
-    res.status(200).json({
+    res.json({
       success: true,
-      data: profile
+      data: updated,
     });
 
   } catch (error) {
-    const status =
-      error.message === "Profile not found" ? 404 : 403;
 
-    res.status(status).json({
+    res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
+
   }
+
+};
+
+const deleteProfile = async (req, res) => {
+
+  try {
+
+    await professionalService.deleteProfile(
+      req.params.id,
+      req.user
+    );
+
+    res.json({
+      success: true,
+      message: "Profil supprimé"
+    });
+
+  } catch(error){
+
+    res.status(400).json({
+      success:false,
+      message:error.message
+    });
+
+  }
+
 };
 
 module.exports = {
   createProfile,
   getProfessionals,
+  getMyProfile,
   getProfessionalById,
-  updateProfile
+  updateProfile,
+  deleteProfile
 };

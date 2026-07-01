@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
+
 import axios from "../../api/axios";
-import ArticleForm from "../../components/forms/ArticleForm";
+import ArticleForm from "../../components/ArticleForm";
 
 export default function CreateArticlePage() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (data) => {
+  const handleCreate = async (data) => {
 
     try {
 
@@ -14,13 +15,13 @@ export default function CreateArticlePage() {
 
       alert("Article créé");
 
-      navigate("/articles");
+      navigate("/dashboard/professional/articles");
 
-    } catch (err) {
+    } catch (error) {
 
-      console.error(err);
+      console.error(error);
 
-      alert("Erreur");
+      alert("Erreur lors de la création de l'article");
 
     }
 
@@ -28,23 +29,14 @@ export default function CreateArticlePage() {
 
   return (
 
-    <div style={{ maxWidth: 800, margin: "40px auto" }}>
+    <div style={{ maxWidth: 900, margin: "40px auto" }}>
 
       <h1>Nouvel article</h1>
 
       <ArticleForm
-
-        initialValues={{
-          title: "",
-          content: "",
-          category: "",
-          image: "",
-        }}
-
-        onSubmit={handleSubmit}
-
-        submitLabel="Publier"
-
+        initialValues={{}}
+        onSubmit={handleCreate}
+        submitLabel="Créer"
       />
 
     </div>

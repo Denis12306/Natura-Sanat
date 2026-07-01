@@ -26,8 +26,6 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
-module.exports = app;
-
 const courseRoutes = require("./routes/course.routes");
 
 app.use("/api/courses", courseRoutes);
@@ -48,3 +46,5 @@ app.use(
 const commentRoutes = require("./routes/comment.routes");
 
 app.use("/api/comments", commentRoutes);
+
+module.exports = app;

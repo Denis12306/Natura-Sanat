@@ -18,7 +18,9 @@ const uploadImage = (buffer, folder) => {
       }
     );
 
-    streamifier.createReadStream(buffer).pipe(stream);
+    streamifier
+      .createReadStream(buffer)
+      .pipe(stream);
 
   });
 };
@@ -29,7 +31,7 @@ const deleteImage = async (publicId) => {
     return;
   }
 
-  await cloudinary.uploader.destroy(publicId);
+  return cloudinary.uploader.destroy(publicId);
 
 };
 

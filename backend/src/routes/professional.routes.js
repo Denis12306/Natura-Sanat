@@ -2,10 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const streamifier = require("streamifier");
-
 const upload = require("../middleware/upload.middleware");
-const cloudinary = require("../config/cloudinary");
 
 const professionalController = require(
   "../controllers/professional.controller"
@@ -25,6 +22,13 @@ router.get(
 );
 
 router.get(
+    "/me",
+    protect,
+    authorize("professional","admin"),
+    professionalController.getMyProfile
+);
+
+router.get(
   "/:id",
   professionalController.getProfessionalById
 );
@@ -32,61 +36,24 @@ router.get(
 router.post(
   "/",
   protect,
-  authorize("professional", "admin"),
+  authorize("professional","admin"),
+  upload.single("image"),
   professionalController.createProfile
 );
 
 router.put(
   "/:id",
   protect,
-  authorize("professional", "admin"),
+  authorize("professional","admin"),
+  upload.single("image"),
   professionalController.updateProfile
 );
 
-router.post(
-  "/upload",
+router.delete(
+  "/:id",
   protect,
-  authorize("professional", "admin"),
-  upload.single("image"),
-  async (req, res) => {
-    try {
-      if (!req.file) {
-        return res.status(400).json({
-          success: false,
-          message: "No file uploaded"
-        });
-      }
-
-      const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          folder: "natura-sanat"
-        },
-        (error, result) => {
-          if (error) {
-            return res.status(500).json({
-              success: false,
-              message: error.message
-            });
-          }
-
-          return res.status(200).json({
-            success: true,
-            imageUrl: result.secure_url
-          });
-        }
-      );
-
-      streamifier
-        .createReadStream(req.file.buffer)
-        .pipe(uploadStream);
-
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        message: error.message
-      });
-    }
-  }
+  authorize("professional","admin"),
+  professionalController.deleteProfile
 );
 
 module.exports = router;
