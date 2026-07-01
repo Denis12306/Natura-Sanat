@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import images from "../assets/images";
 
 export default function ArticleCard({ article }) {
   return (
@@ -15,16 +16,13 @@ export default function ArticleCard({ article }) {
           borderRadius: "18px",
           overflow: "hidden",
           boxShadow: "0 8px 25px rgba(0,0,0,.08)",
+          border: "1px solid #edf2e8",
           transition: ".25s",
           cursor: "pointer",
-          border: "1px solid #edf2e8",
         }}
       >
         <img
-          src={
-            article.image ||
-            "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800"
-          }
+          src={article.image || images.defaultArticle}
           alt={article.title}
           style={{
             width: "100%",
@@ -70,7 +68,7 @@ export default function ArticleCard({ article }) {
               minHeight: 70,
             }}
           >
-            {article.content.substring(0, 120)}...
+            {article.content?.slice(0, 120)}...
           </p>
 
           <div

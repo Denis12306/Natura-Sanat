@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import axios from "../../api/axios";
-
 import ArticleForm from "../../components/ArticleForm";
 
 export default function CreateArticlePage() {
@@ -22,7 +21,7 @@ export default function CreateArticlePage() {
 
       console.error(error);
 
-      alert("Erreur");
+      alert("Erreur lors de la création de l'article");
 
     }
 
@@ -35,13 +34,9 @@ export default function CreateArticlePage() {
       <h1>Nouvel article</h1>
 
       <ArticleForm
-
         initialValues={{}}
-
         onSubmit={handleCreate}
-
         submitLabel="Créer"
-
       />
 
     </div>

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { images } from "@/config/images";
 
 export default function CourseCard({ course }) {
   return (
     <div className="border rounded-lg overflow-hidden shadow-md">
       <img
-        src={course.image}
-        alt={course.title}
-        className="w-full h-48 object-cover"
+        src={images.defaultCourse}
+        alt="Cours"
+        className="w-full h-52 object-cover"
       />
 
       <div className="p-4">

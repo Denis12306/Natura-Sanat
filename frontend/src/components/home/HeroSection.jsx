@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import images from "../../assets/images";
 
 export default function HeroSection() {
   return (
@@ -36,7 +37,6 @@ export default function HeroSection() {
               className="flex items-center gap-2 rounded-lg border px-6 py-3 hover:bg-white"
             >
               Voir les formations
-
               <ArrowRight size={18} />
             </Link>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
         <div className="flex-1">
 
           <img
-            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900"
+            src={images.hero}
             alt="Santé naturelle"
             className="rounded-3xl shadow-xl"
           />

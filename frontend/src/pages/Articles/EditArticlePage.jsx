@@ -14,9 +14,10 @@ export default function EditArticlePage() {
 
   useEffect(() => {
     loadArticle();
-  }, []);
+  }, [id]);
 
   async function loadArticle() {
+
     try {
 
       const response = await axios.get(`/articles/${id}`);
@@ -24,8 +25,11 @@ export default function EditArticlePage() {
       setArticle(response.data.data);
 
     } catch (error) {
+
       console.error(error);
+
     }
+
   }
 
   async function handleUpdate(data) {
@@ -42,11 +46,15 @@ export default function EditArticlePage() {
 
       console.error(error);
 
+      alert("Erreur lors de la modification");
+
     }
 
   }
 
-  if (!article) return <p>Chargement...</p>;
+  if (!article) {
+    return <p>Chargement...</p>;
+  }
 
   return (
 
