@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import axios from "../../api/axios";
-import ArticleForm from "../../components/ArticleForm";
+import ArticleForm from "../../components/forms/ArticleForm";
 
 export default function CreateArticlePage() {
 

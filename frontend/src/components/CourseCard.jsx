@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { images } from "@/config/images";
+import { images } from "@/assets/images";
 
 export default function CourseCard({ course }) {
   return (

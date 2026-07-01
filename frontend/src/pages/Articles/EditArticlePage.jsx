@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "../../api/axios";
-import ArticleForm from "../../components/ArticleForm";
+import ArticleForm from "../../components/forms/ArticleForm";
 
 export default function EditArticlePage() {
 
