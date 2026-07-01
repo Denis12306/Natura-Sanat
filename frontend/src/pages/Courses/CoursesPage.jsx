@@ -20,8 +20,16 @@ export default function CoursesPage() {
   }, []);
 
   return (
-    <div>
-      <h1>Nos cours</h1>
+    <div className="max-w-6xl mx-auto p-6">
+      <h1
+        style={{
+          marginBottom: "30px",
+          fontSize: "34px",
+          color: "#3d5d36",
+        }}
+      >
+        Nos cours
+      </h1>
 
       {courses.map((course) => (
         <CourseCard key={course._id} course={course} />

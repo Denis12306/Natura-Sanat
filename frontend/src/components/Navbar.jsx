@@ -5,48 +5,84 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <nav
+    <aside
       style={{
+        width: 260,
+        background: "#ffffff",
+        borderRight: "1px solid #e5e7eb",
+        padding: "30px",
         display: "flex",
-        gap: "20px",
-        padding: "15px",
-        borderBottom: "1px solid #ddd",
-        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
-      <Link to="/">Accueil</Link>
+      <div>
+        <h2
+          style={{
+            color: "#2f855a",
+            marginBottom: 40,
+          }}
+        >
+          🌿 Natura Sanat
+        </h2>
 
-      {user ? (
-        <>
-          <Link to="/courses">Cours</Link>
+        <nav
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+          }}
+        >
+          <Link to="/">🏠 Accueil</Link>
+
+          <Link to="/courses">📚 Cours</Link>
 
           <Link to="/professionals">
-            Professionnels
+            👨‍⚕️ Professionnels
           </Link>
 
           <Link to="/articles">
-            Articles
+            📰 Articles
           </Link>
 
-          {user.role === "admin" && (
-            <Link to="/admin">
-              Administration
+          {user?.role === "professional" && (
+            <Link to="/dashboard/professional">
+              🎓 Mon espace
             </Link>
           )}
 
+          {user?.role === "admin" && (
+            <Link to="/dashboard/admin">
+              ⚙ Administration
+            </Link>
+          )}
+        </nav>
+      </div>
+
+      {user ? (
+
+        <div className="user-menu">
+
           <span>
-            Bonjour {user.firstName} ({user.role})
+            Bonjour {user.firstName}
           </span>
 
           <button onClick={logout}>
             Déconnexion
           </button>
-        </>
+
+        </div>
+
       ) : (
-        <Link to="/login">
-          Connexion
+
+        <Link
+          to="/login"
+          className="login-btn"
+        >
+          Se connecter
         </Link>
+
       )}
-    </nav>
+    </aside >
   );
 }

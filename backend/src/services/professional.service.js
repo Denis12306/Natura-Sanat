@@ -1,5 +1,9 @@
 const Professional = require("../models/Professional");
 
+const {
+  deleteImage,
+} = require("./cloudinary.service");
+
 const createProfile = async (data, userId) => {
   const existingProfile = await Professional.findOne({
     user: userId
@@ -13,6 +17,17 @@ const createProfile = async (data, userId) => {
     ...data,
     user: userId
   });
+};
+
+const getMyProfile = async (userId) => {
+
+  return Professional.findOne({
+    user: userId
+  }).populate(
+    "user",
+    "firstName lastName email"
+  );
+
 };
 
 const getProfessionals = async (filters) => {
@@ -64,9 +79,40 @@ const updateProfile = async (profileId, user, data) => {
   );
 };
 
+const deleteProfile = async (profileId, user) => {
+
+  const profile =
+    await Professional.findById(profileId);
+
+  if (!profile) {
+    throw new Error("Profile not found");
+  }
+
+  const isOwner =
+    profile.user.toString() === user._id.toString();
+
+  const isAdmin =
+    user.role === "admin";
+
+  if (!isOwner && !isAdmin) {
+    throw new Error("Access denied");
+  }
+
+  if (profile.profileImagePublicId) {
+    await deleteImage(
+      profile.profileImagePublicId
+    );
+  }
+
+  await profile.deleteOne();
+
+};
+
 module.exports = {
   createProfile,
   getProfessionals,
+  getMyProfile,
   getProfessionalById,
-  updateProfile
+  updateProfile,
+  deleteProfile
 };

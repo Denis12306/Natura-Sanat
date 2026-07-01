@@ -1,30 +1,51 @@
 import { Link } from "react-router-dom";
 
-export default function ProfessionalCard({
-  professional,
-}) {
+export default function ProfessionalCard({ professional }) {
   return (
-    <div className="border rounded-lg p-4 shadow-md">
+    <div
+      style={{
+        background: "#fff",
+        borderRadius: 18,
+        overflow: "hidden",
+        boxShadow: "0 8px 25px rgba(0,0,0,.08)",
+      }}
+    >
       <img
-        src={professional.image}
-        alt={professional.name}
-        className="w-24 h-24 rounded-full object-cover mb-4"
+        src={
+          professional.profileImage ||
+          "https://res.cloudinary.com/ddvpdcluh/image/upload/v1782576119/online-marketing-hIgeoQjS_iE-unsplash_x4mvni.jpg"
+        }
+        alt={professional.user?.firstName}
+        style={{
+          width: "100%",
+          height: 220,
+          objectFit: "cover",
+        }}
       />
 
-      <h2 className="text-xl font-bold">
-        {professional.name}
-      </h2>
+      <div style={{ padding: 20 }}>
+        <h3>
+          {professional.user?.firstName}{" "}
+          {professional.user?.lastName}
+        </h3>
 
-      <p className="text-gray-600 mb-4">
-        {professional.specialty}
-      </p>
+        <p
+          style={{
+            color: "#5E7A4D",
+            fontWeight: 600,
+          }}
+        >
+          {professional.specialty}
+        </p>
 
-      <Link
-        to={`/professionals/${professional._id}`}
-        className="text-green-600"
-      >
-        Voir le profil
-      </Link>
+        <p>{professional.city}</p>
+
+        <Link
+          to={`/professionals/${professional._id}`}
+        >
+          Voir le profil →
+        </Link>
+      </div>
     </div>
   );
 }

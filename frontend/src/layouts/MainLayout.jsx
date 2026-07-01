@@ -1,18 +1,30 @@
 import { Outlet } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 
 export default function MainLayout() {
+
   return (
-    <>
-      <Navbar />
 
-      <main style={{ minHeight: "80vh", padding: "20px" }}>
-        <Outlet />
-      </main>
+    <div className="layout">
 
-      <Footer />
-    </>
+      <Sidebar />
+
+      <div className="content">
+
+        <Topbar />
+
+        <main>
+
+          <Outlet />
+
+        </main>
+
+      </div>
+
+    </div>
+
   );
+
 }

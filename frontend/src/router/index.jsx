@@ -11,15 +11,17 @@ import CourseDetailPage from "../pages/Courses/CourseDetailPage";
 
 import ArticlesPage from "../pages/Articles/ArticlesPage";
 import ArticleDetailPage from "../pages/Articles/ArticleDetailPage";
+import CreateArticlePage from "../pages/Articles/CreateArticlePage";
+import MyArticles from "../pages/Articles/MyArticles";
+import EditArticlePage from "../pages/Articles/EditArticlePage";
 
 import ProfessionalsPage from "../pages/Professionals/ProfessionalsPage";
 import ProfessionalDetailPage from "../pages/Professionals/ProfessionalDetailPage";
 
 import AdminDashboard from "../pages/Dashboard/AdminDashboard";
-import AdminRoute from "../components/AdminRoute";
-
 import ProfessionalDashboard from "../pages/Dashboard/ProfessionalDashboard";
 
+import AdminRoute from "../components/AdminRoute";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 import UsersManagement from "../pages/Admin/UsersManagement";
@@ -115,7 +117,31 @@ const router = createBrowserRouter([
             <ProfessionalDashboard />
           </ProtectedRoute>
         )
-      }
+      },
+      {
+        path: "dashboard/professional/articles",
+        element: (
+          <ProtectedRoute role="professional">
+            <MyArticles />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "dashboard/professional/articles/edit/:id",
+        element: (
+          <ProtectedRoute role="professional">
+            <EditArticlePage />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "dashboard/professional/articles/create",
+        element: (
+          <ProtectedRoute role="professional">
+            <CreateArticlePage />
+          </ProtectedRoute>
+        )
+      },
     ]
   }
 ]);
