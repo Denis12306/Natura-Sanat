@@ -42,7 +42,7 @@ export default function ArticlesPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill,minmax(340px,1fr))",
-          gap: "30px",
+          gap: "50px",
         }}
       >
         {articles.map((article) => (

@@ -1,12 +1,12 @@
 const request = require("supertest");
 const app = require("../app");
 
-describe("Courses API", () => {
+describe("Professionals API", () => {
 
-  test("GET /api/courses", async () => {
+  test("GET /api/professionals", async () => {
 
     const res = await request(app)
-      .get("/api/courses");
+      .get("/api/professionals");
 
     expect(res.statusCode).toBe(200);
 
