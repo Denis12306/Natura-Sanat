@@ -10,6 +10,7 @@ import RegisterPage from "../pages/Auth/RegisterPage";
 import CoursesPage from "../pages/Courses/CoursesPage";
 import CourseDetailPage from "../pages/Courses/CourseDetailPage";
 import MyCourses from "../pages/Dashboard/Professional/MyCourses";
+import CreateCoursePage from "../pages/Courses/CreateCoursePage";
 
 import ArticlesPage from "../pages/Articles/ArticlesPage";
 import ArticleDetailPage from "../pages/Articles/ArticleDetailPage";
@@ -20,6 +21,8 @@ import MyArticles from "../pages/Articles/MyArticles";
 import ProfessionalsPage from "../pages/Professionals/ProfessionalsPage";
 import ProfessionalDetailPage from "../pages/Professionals/ProfessionalDetailPage";
 import ProfessionalDashboard from "../pages/Dashboard/Professional/Dashboard";
+import CreateProfessionalPage from "../pages/Professionals/CreateProfessionalPage";
+import EditProfessionalPage from "../pages/Professionals/EditProfessionalPage";
 
 import AdDashboard from "../pages/Dashboard/Admin/AdDashboard";
 import AdUsersPage from "../pages/Dashboard/Admin/AdUsersPage";
@@ -121,7 +124,22 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-
+      {
+        path: "professionals/create",
+        element: (
+          <ProtectedRoute roles={["professional", "admin"]}>
+            <CreateProfessionalPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "professionals/edit/:id",
+        element: (
+          <ProtectedRoute roles={["professional", "admin"]}>
+            <EditProfessionalPage />
+          </ProtectedRoute>
+        ),
+      },
       {
         path: "articles/create",
         element: (
@@ -136,6 +154,15 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute roles={["professional", "admin"]}>
             <EditArticlePage />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: "courses/create",
+        element: (
+          <ProtectedRoute roles={["professional", "admin"]}>
+            <CreateCoursePage />
           </ProtectedRoute>
         ),
       },

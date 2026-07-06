@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import axios from "../../api/axios";
 
 import ProfessionalCard from "../../components/ProfessionalCard";
@@ -9,6 +11,10 @@ export default function ProfessionalsPage() {
   const [loading, setLoading] = useState(true);
 
   const [search, setSearch] = useState("");
+
+  const { user } = useAuth();
+
+  const canCreate = user && (user.role === "professional" || user.role === "admin");
 
   useEffect(() => {
     fetchProfessionals();
@@ -47,6 +53,23 @@ export default function ProfessionalsPage() {
 
   return (
     <div>
+      {canCreate && (
+        <Link
+          to="/professionals/create"
+          style={{
+            display: "inline-block",
+            backgroundColor: "#3d5d36",
+            color: "white",
+            padding: "12px 24px",
+            borderRadius: "16px",
+            fontWeight: "600",
+            textDecoration: "none",
+            marginBottom: "20px",
+          }}
+        >
+          + Créer ma fiche professionnelle
+        </Link>
+      )}
       <h1
         style={{
           marginBottom: "30px",

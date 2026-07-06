@@ -5,8 +5,8 @@ export default function CourseCard({ course }) {
   return (
     <div className="border rounded-lg overflow-hidden shadow-md">
       <img
-        src={images.defaultCourse}
-        alt="Cours"
+        src={course.image || images.defaultCourse}
+        alt={course.title}
         className="w-full h-52 object-cover"
       />
 
