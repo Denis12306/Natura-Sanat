@@ -29,6 +29,12 @@ const courseSchema = new mongoose.Schema(
       required: true
     },
 
+    price: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    
     image: {
       type: String,
       default: "",

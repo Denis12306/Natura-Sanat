@@ -13,6 +13,7 @@ export default function CourseForm({
     category: initialValues.category || "",
     duration: initialValues.duration || "",
     level: initialValues.level || "beginner",
+    price: initialValues.price || "",
     image: null,
   });
 
@@ -45,6 +46,7 @@ export default function CourseForm({
     data.append("category", formData.category);
     data.append("duration", formData.duration);
     data.append("level", formData.level);
+    data.append("price", formData.price);
 
     if (formData.image) {
       data.append("image", formData.image);

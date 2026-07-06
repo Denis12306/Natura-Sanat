@@ -7,5 +7,5 @@ export const getCourses = async () => {
 
 export const getCourseById = async (id) => {
   const response = await api.get(`/courses/${id}`);
-  return response.data.course;
+  return response.data.data;
 };
