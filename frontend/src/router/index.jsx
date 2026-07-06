@@ -134,7 +134,7 @@ const router = createBrowserRouter([
       {
         path: "articles/edit/:id",
         element: (
-          <ProtectedRoute role="professional">
+          <ProtectedRoute roles={["professional", "admin"]}>
             <EditArticlePage />
           </ProtectedRoute>
         ),
@@ -184,7 +184,7 @@ const router = createBrowserRouter([
       },
 
       /* ================= ABOUT ================= */
-      
+
       {
         path: "about",
         element: <AboutPage />,

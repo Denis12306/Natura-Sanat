@@ -14,16 +14,16 @@ export default function ArticleForm({
     image: null,
   });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
+  }
 
-  const handleImage = (e) => {
+  function handleImage(e) {
     const file = e.target.files[0];
 
     if (!file) return;
@@ -34,9 +34,9 @@ export default function ArticleForm({
     }));
 
     setPreview(URL.createObjectURL(file));
-  };
+  }
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
     const data = new FormData();
@@ -50,61 +50,89 @@ export default function ArticleForm({
     }
 
     onSubmit(data);
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="mx-auto max-w-4xl space-y-8 rounded-3xl bg-white p-10 shadow-xl"
+    >
+      {/* Titre */}
+      <div>
+        <label className="mb-2 block font-semibold text-gray-700">
+          Titre
+        </label>
 
-      <input
-        name="title"
-        placeholder="Titre"
-        value={formData.title}
-        onChange={handleChange}
-      />
+        <input
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Titre de l'article"
+          className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
+        />
+      </div>
 
-      <br /><br />
+      {/* Catégorie */}
+      <div>
+        <label className="mb-2 block font-semibold text-gray-700">
+          Catégorie
+        </label>
 
-      <textarea
-        rows={10}
-        name="content"
-        placeholder="Contenu"
-        value={formData.content}
-        onChange={handleChange}
-      />
+        <input
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          placeholder="Ex : Nutrition"
+          className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
+        />
+      </div>
 
-      <br /><br />
+      {/* Contenu */}
+      <div>
+        <label className="mb-2 block font-semibold text-gray-700">
+          Contenu
+        </label>
 
-      <input
-        name="category"
-        placeholder="Catégorie"
-        value={formData.category}
-        onChange={handleChange}
-      />
+        <textarea
+          rows={16}
+          name="content"
+          value={formData.content}
+          onChange={handleChange}
+          placeholder="Rédigez votre article..."
+          className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg leading-8 outline-none transition focus:border-green-600"
+        />
+      </div>
 
-      <br /><br />
+      {/* Image */}
+      <div>
+        <label className="mb-2 block font-semibold text-gray-700">
+          Image de couverture
+        </label>
 
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleImage}
-      />
-
-      <br /><br />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImage}
+          className="block w-full rounded-xl border border-gray-300 p-3"
+        />
+      </div>
 
       {preview && (
-        <img
-          src={preview}
-          width={250}
-          alt=""
-        />
+        <div>
+          <img
+            src={preview}
+            alt="Aperçu"
+            className="max-h-80 rounded-2xl shadow-lg"
+          />
+        </div>
       )}
 
-      <br /><br />
-
-      <button type="submit">
+      <button
+        type="submit"
+        className="rounded-2xl bg-green-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-green-700"
+      >
         {submitLabel}
       </button>
-
     </form>
   );
 }

@@ -19,42 +19,26 @@ export default function EditArticlePage() {
   async function loadArticle() {
 
     try {
-
       const response = await axios.get(`/articles/${id}`);
-
       setArticle(response.data.data);
-
     } catch (error) {
-
       console.error(error);
-
     }
-
   }
 
-  async function handleUpdate(data) {
-
+  async function handleUpdate(formData) {
     try {
-
-      await axios.put(`/articles/${id}`, data);
-
-      alert("Article modifié");
-
-      navigate("/dashboard/professional/articles");
-
+      await axios.put(`/articles/${id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      navigate(`/articles/${id}`);
     } catch (error) {
-
       console.error(error);
-
-      alert("Erreur lors de la modification");
-
+      alert("Erreur lors de la mise à jour.");
     }
-
   }
 
-  if (!article) {
-    return <p>Chargement...</p>;
-  }
+  if (!article) return <p>Chargement...</p>;
 
   return (
 
@@ -65,7 +49,7 @@ export default function EditArticlePage() {
       <ArticleForm
         initialValues={article}
         onSubmit={handleUpdate}
-        submitLabel="Modifier"
+        submitLabel="Mettre à jour"
       />
 
     </div>

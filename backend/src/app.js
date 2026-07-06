@@ -10,12 +10,13 @@ const app = express();
 
 app.use(helmet());
 app.use(cors());
-app.use("/api/users", userRoutes);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan("dev"));
+
+app.use("/api/users", userRoutes);
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({
@@ -38,10 +39,7 @@ const professionalRoutes = require(
   "./routes/professional.routes"
 );
 
-app.use(
-  "/api/professionals",
-  professionalRoutes
-);
+app.use("/api/professionals", professionalRoutes);
 
 const commentRoutes = require("./routes/comment.routes");
 

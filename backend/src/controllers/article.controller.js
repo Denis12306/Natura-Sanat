@@ -4,7 +4,8 @@ const createArticle = async (req, res) => {
   try {
     const article = await articleService.createArticle(
       req.body,
-      req.user._id
+      req.user._id,
+      req.file
     );
 
     res.status(201).json({
@@ -65,7 +66,8 @@ const updateArticle = async (req, res) => {
     const article = await articleService.updateArticle(
       req.params.id,
       req.user,
-      req.body
+      req.body,
+      req.file
     );
 
     res.status(200).json({
