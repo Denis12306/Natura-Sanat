@@ -40,34 +40,37 @@ export default function ProfessionalDetailPage() {
   const canManage = isOwner || isAdmin;
 
   return (
-    <div style={{ maxWidth: 900, margin: "auto" }}>
+    <div style={{ maxWidth: 900, margin: "auto" }} className="p-6">
+
       <img
         src={
           professional.profileImage ||
           "https://res.cloudinary.com/ddvpdcluh/image/upload/v1782576119/online-marketing-hIgeoQjS_iE-unsplash_x4mvni.jpg"
         }
         alt={professional.user?.firstName}
-        style={{
-          width: "100%",
-          borderRadius: 20,
-          marginBottom: 30,
-        }}
+        className="w-full h-72 object-cover rounded-2xl shadow-lg mb-8"
       />
 
-      <h1>
+      <h1 className="text-3xl font-bold text-gray-900">
         {professional.user.firstName} {professional.user.lastName}
       </h1>
-      <h3>{professional.specialty}</h3>
-      <p>📍 {professional.city}</p>
-      <hr />
-      <p>{professional.bio}</p>
+      <h3 className="text-lg font-semibold text-green-600 mt-1">
+        {professional.specialty}
+      </h3>
+      <p className="text-gray-500 mt-1 mb-6">📍 {professional.city}</p>
 
-      <h4>Contact</h4>
-      <p>📞 {professional.phone}</p>
-      <p>🌍 {professional.website}</p>
+      <hr className="mb-8" />
+
+      <p className="text-gray-700 leading-8 mb-8 whitespace-pre-line">
+        {professional.bio}
+      </p>
+
+      <h4 className="text-xl font-bold mb-3">Contact</h4>
+      <p className="text-gray-700">📞 {professional.phone}</p>
+      <p className="text-gray-700 mb-8">🌍 {professional.website}</p>
 
       {canManage && (
-        <div className="flex gap-4 mt-8">
+        <div className="flex gap-4">
           <Link
             to={`/professionals/edit/${id}`}
             className="rounded-2xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition"

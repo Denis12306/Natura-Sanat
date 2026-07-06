@@ -12,19 +12,23 @@ const professionalService = require(
 
 const createProfile = async (req, res) => {
   try {
-
     let profileImage = "";
     let profileImagePublicId = "";
 
     if (req.file) {
-
       const uploaded = await uploadImage(
         req.file.buffer,
         "professionals"
       );
-
       profileImage = uploaded.secure_url;
       profileImagePublicId = uploaded.public_id;
+    }
+
+    // Un admin peut créer la fiche pour un autre utilisateur en précisant "userId"
+    // Sinon, la fiche est créée pour l'utilisateur connecté (comportement inchangé)
+    let targetUserId = req.user._id;
+    if (req.user.role === "admin" && req.body.userId) {
+      targetUserId = req.body.userId;
     }
 
     const profile =
@@ -34,21 +38,18 @@ const createProfile = async (req, res) => {
           profileImage,
           profileImagePublicId,
         },
-        req.user._id
+        targetUserId
       );
 
     res.status(201).json({
       success: true,
       data: profile,
     });
-
   } catch (error) {
-
     res.status(400).json({
       success: false,
       message: error.message,
     });
-
   }
 };
 
