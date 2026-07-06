@@ -4,91 +4,37 @@ import images from "../../assets/images";
 
 export default function HeroSection() {
   return (
-    <section
-      className="bg-green-50 rounded-3xl"
-      style={{
-        padding: "70px 60px",
-        marginBottom: "70px",
-      }}
-    >
-      <div
-        className="mx-auto flex max-w-7xl flex-col lg:flex-row"
-        style={{
-          alignItems: "center",
-          gap: "80px",
-        }}
-      >
+    <section className="mb-16 rounded-3xl bg-green-50 px-6 py-14 md:px-10 md:py-16 lg:mb-20 lg:px-16 lg:py-20">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:gap-20">
         {/* Partie gauche */}
-        <div className="flex-1">
-          <span className="rounded-full bg-green-100 px-5 py-2 text-sm font-semibold text-green-700">
+        <div className="flex-1 text-center lg:text-left">
+          <span className="inline-block rounded-full bg-green-100 px-5 py-2 text-sm font-semibold text-green-700">
             🌿 Santé naturelle
           </span>
 
-          <h1
-            className="font-bold text-gray-900"
-            style={{
-              fontSize: "50px",
-              lineHeight: 1.1,
-              marginTop: "30px",
-              marginBottom: "30px",
-            }}
-          >
+          <h1 className="mt-8 mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
             Prenez soin de votre
             <br />
             santé naturellement.
           </h1>
 
-          <p
-            className="text-gray-600"
-            style={{
-              fontSize: "22px",
-              lineHeight: 1.8,
-              maxWidth: "620px",
-              marginBottom: "45px",
-            }}
-          >
+          <p className="mx-auto mb-10 max-w-xl text-lg leading-8 text-gray-600 md:text-xl lg:mx-0">
             Trouvez des professionnels certifiés, découvrez des
             formations de qualité et apprenez à prendre soin de
             vous grâce à la naturopathie.
           </p>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
             <Link
               to="/professionals"
-              style={{
-                background: "#5d7d4d",
-                color: "white",
-                padding: "16px 28px",
-                borderRadius: "14px",
-                fontWeight: 600,
-                textDecoration: "none",
-                transition: ".25s",
-              }}
+              className="rounded-xl bg-[#5d7d4d] px-7 py-4 text-center font-semibold text-white transition hover:bg-[#4f6d41]"
             >
               Trouver un professionnel
             </Link>
 
             <Link
               to="/courses"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "16px 28px",
-                border: "1px solid #d7dfcf",
-                borderRadius: "14px",
-                textDecoration: "none",
-                color: "#334155",
-                fontWeight: 600,
-                background: "white",
-                transition: ".25s",
-              }}
+              className="flex items-center justify-center gap-2 rounded-xl border border-green-200 bg-white px-7 py-4 font-semibold text-slate-700 transition hover:bg-green-50"
             >
               Voir les formations
               <ArrowRight size={18} />
@@ -97,23 +43,11 @@ export default function HeroSection() {
         </div>
 
         {/* Partie droite */}
-        <div
-          className="flex-1"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <div className="flex flex-1 justify-center">
           <img
             src={images.hero}
             alt="Santé naturelle"
-            style={{
-              width: "80%",
-              maxWidth: "520px",
-              borderRadius: "30px",
-              boxShadow: "0 25px 60px rgba(0,0,0,.15)",
-              objectFit: "cover",
-            }}
+            className="w-full max-w-sm rounded-3xl object-cover shadow-2xl md:max-w-md lg:max-w-xl"
           />
         </div>
       </div>
