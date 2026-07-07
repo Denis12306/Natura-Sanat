@@ -12,10 +12,21 @@ export default function HeroSection() {
             🌿 Santé naturelle
           </span>
 
-          <h1 className="mt-8 mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
-            Prenez soin de votre
+          <h1
+            className="
+              mt-8
+              mb-8
+              font-bold
+              leading-tight
+              text-gray-900
+              text-5xl
+              xl:text-6xl
+              max-w-4xl
+            "
+          >
+            Prenez soin de votre santé
             <br />
-            santé naturellement.
+            naturellement.
           </h1>
 
           <p className="mx-auto mb-10 max-w-xl text-lg leading-8 text-gray-600 md:text-xl lg:mx-0">
@@ -23,23 +34,6 @@ export default function HeroSection() {
             formations de qualité et apprenez à prendre soin de
             vous grâce à la naturopathie.
           </p>
-
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-            <Link
-              to="/professionals"
-              className="rounded-xl bg-[#5d7d4d] px-7 py-4 text-center font-semibold text-white transition hover:bg-[#4f6d41]"
-            >
-              Trouver un professionnel
-            </Link>
-
-            <Link
-              to="/courses"
-              className="flex items-center justify-center gap-2 rounded-xl border border-green-200 bg-white px-7 py-4 font-semibold text-slate-700 transition hover:bg-green-50"
-            >
-              Voir les formations
-              <ArrowRight size={18} />
-            </Link>
-          </div>
         </div>
 
         {/* Partie droite */}
