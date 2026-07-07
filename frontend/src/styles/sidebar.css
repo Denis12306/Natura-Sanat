@@ -1,145 +1,119 @@
 .sidebar{
-
 position:fixed;
-
 left:0;
-
 top:0;
-
 width:260px;
-
 height:100vh;
-
 background:white;
-
 border-right:1px solid var(--border);
-
 padding:30px;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:space-between;
-
+z-index:100;
+transition: transform .3s ease;
 }
 
 .logo{
-
 display:flex;
-
 gap:15px;
-
 align-items:center;
-
 color:var(--primary);
-
 margin-bottom:40px;
-
 }
-
 .logo h2{
-
 font-size:20px;
-
 font-weight:700;
-
 line-height:1.1;
-
 }
-
 .sidebar nav{
-
 display:flex;
-
 flex-direction:column;
-
 gap:12px;
-
 }
-
 .sidebar nav a{
-
 display:flex;
-
 align-items:center;
-
 gap:12px;
-
 padding:14px 16px;
-
 border-radius:14px;
-
 text-decoration:none;
-
 color:#444;
-
 transition:.25s;
-
 font-weight:500;
-
 }
-
 .sidebar nav a.active{
-
 background:var(--primary-light);
-
 color:var(--primary);
-
 }
-
 .sidebar nav a:hover{
-
 background:#F4F4F4;
-
 }
-
 .sidebar-card{
-
 background:#F5F3EA;
-
 padding:22px;
-
 border-radius:20px;
-
 }
-
 .sidebar-card h3{
-
 font-size:20px;
-
 margin-bottom:15px;
-
 }
-
 .sidebar-card p{
-
 font-size:14px;
-
 color:#666;
-
 margin-bottom:20px;
-
 line-height:1.6;
-
+}
+.sidebar-card-btn{
+display:block;
+width:100%;
+background:var(--primary);
+border:none;
+color:white;
+padding:12px;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+text-align:center;
+text-decoration:none;
+}
+.sidebar-card-btn:hover{
+opacity:.9;
+}
+/* ===== MOBILE ===== */
+.menu-toggle{
+display:none;
+position:fixed;
+top:20px;
+left:20px;
+z-index:200;
+background:white;
+border:1px solid var(--border);
+border-radius:12px;
+padding:10px;
+cursor:pointer;
+box-shadow:var(--shadow);
 }
 
-.sidebar-card button{
+.overlay{
+display:none;
+}
 
-width:100%;
-
-background:var(--primary);
-
-border:none;
-
-color:white;
-
-padding:12px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-font-weight:600;
-
+@media (max-width: 900px){
+  .sidebar{
+    transform: translateX(-100%);
+  }
+  .sidebar.open{
+    transform: translateX(0);
+  }
+  .menu-toggle{
+    display:flex;
+  }
+  .overlay{
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    z-index:90;
+  }
 }
