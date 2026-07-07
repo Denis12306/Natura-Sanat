@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
-const generateToken = require("../utils/generateToken");
+const { generateToken } = require("../config/jwt");
 
 const register = async (userData) => {
   const { firstName, lastName, email, password } = userData;
@@ -19,13 +19,12 @@ const register = async (userData) => {
     password: hashedPassword
   });
 
-  const token = generateToken(user._id);
+  const token = generateToken(user);
 
   return { user, token };
 };
 
 // Réservée aux admins : permet de créer un utilisateur avec un rôle précis
-// (contrairement à "register" ci-dessus qui garde toujours le rôle par défaut "user")
 const adminCreateUser = async (userData) => {
   const { firstName, lastName, email, password, role } = userData;
 
