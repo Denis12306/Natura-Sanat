@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 
 export default function Header() {
 
-  const { user, logout } =useAuth();
+  const { user, logout } = useAuth();
 
   return (
 
@@ -20,7 +20,12 @@ export default function Header() {
         {user ? (
 
           <>
-            <strong>{user.firstName}</strong>
+            <Link
+              to="/profile"
+              className="font-semibold hover:text-green-600 transition"
+            >
+              {user.firstName}
+            </Link>
 
             <button
               className="logout-btn"

@@ -63,9 +63,12 @@ export default function Navbar() {
 
         <div className="user-menu">
 
-          <span>
-            Bonjour {user.firstName}
-          </span>
+          <Link
+            to="/profile"
+            className="hover:text-green-600 font-semibold"
+          >
+            {user.firstName}
+          </Link>
 
           <button onClick={logout}>
             Déconnexion
