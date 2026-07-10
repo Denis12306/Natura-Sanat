@@ -54,7 +54,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="mx-auto max-w-7xl bg-linear-to-b from-green-50 to-emerald-50 px-6 py-24">
+    <section className="mx-auto max-w-7xl bg-linear-to-b from-green-50 to-emerald-50 px-6 py-24 mb-16">
       <div className="grid gap-10 md:grid-cols-3">
         {items.map((item) => (
           <div
