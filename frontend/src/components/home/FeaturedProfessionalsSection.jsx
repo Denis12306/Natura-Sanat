@@ -27,7 +27,7 @@ export default function FeaturedProfessionalsSection() {
       <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end border-b border-[#5D7C50]/10 pb-8">
         <div>
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2F3E29]">
-            Nos naturopathes
+            Nos naturothérapeutes
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#2F3E29]/70 leading-relaxed md:whitespace-nowrap">
             Des praticiens qualifiés proches de chez vous ou presque.
@@ -39,7 +39,7 @@ export default function FeaturedProfessionalsSection() {
           to="/professionals"
           className="group inline-flex items-center gap-2 font-medium text-sm uppercase tracking-wider text-[#5D7C50] transition-colors hover:text-[#2F3E29]"
         >
-          Voir tous les naturopathes
+          Voir tous les naturothérapeutes
           <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
