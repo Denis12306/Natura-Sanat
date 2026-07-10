@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../api/axios";
+import { ArrowRight } from "lucide-react";
 import ProfessionalCard from "../ProfessionalCard";
 
 export default function FeaturedProfessionalsSection() {
@@ -21,23 +22,30 @@ export default function FeaturedProfessionalsSection() {
   if (professionals.length === 0) return null;
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 mb-20">
-      <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+    <section className="mx-auto max-w-7xl px-6 py-20 my-12">
+      {/* EN-TÊTE DE LA SECTION ACCUEILLANTE ET CHIC */}
+      <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end border-b border-[#5D7C50]/10 pb-8">
         <div>
-          <h2 className="text-4xl font-bold text-gray-900">Nos naturopathes</h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Des praticiens qualifiés proches de chez vous.
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2F3E29]">
+            Nos naturopathes
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-[#2F3E29]/70 leading-relaxed md:whitespace-nowrap">
+            Des praticiens qualifiés proches de chez vous ou presque.
           </p>
         </div>
+
+        {/* LIEN DE NAVIGATION STYLE GALERIE */}
         <Link
           to="/professionals"
-          className="font-semibold text-green-700 transition hover:text-green-900 hover:underline"
+          className="group inline-flex items-center gap-2 font-medium text-sm uppercase tracking-wider text-[#5D7C50] transition-colors hover:text-[#2F3E29]"
         >
-          Voir tous les naturopathes →
+          Voir tous les naturopathes
+          <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-3">
+      {/* GRILLE DE CARTES PARFAITEMENT ESPACÉES */}
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
         {professionals.map((professional) => (
           <ProfessionalCard key={professional._id} professional={professional} />
         ))}

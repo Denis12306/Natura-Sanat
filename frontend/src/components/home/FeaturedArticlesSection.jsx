@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../api/axios";
+import { ArrowRight } from "lucide-react";
 import ArticleCard from "../ArticleCard";
 
 export default function FeaturedArticlesSection() {
@@ -21,28 +22,33 @@ export default function FeaturedArticlesSection() {
   if (articles.length === 0) return null;
 
   return (
-    <section className="bg-white px-6 py-20 mb-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900">Derniers articles</h2>
-            <p className="mt-2 text-lg text-gray-600">
-              Des conseils fiables pour votre bien-être au quotidien.
-            </p>
-          </div>
-          <Link
-            to="/articles"
-            className="font-semibold text-green-700 transition hover:text-green-900 hover:underline"
-          >
-            Voir tous les articles →
-          </Link>
+    <section className="mx-auto max-w-7xl px-6 py-20 my-12">
+      {/* EN-TÊTE DE LA SECTION ACCUEILLANTE ET CHIC */}
+      <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end border-b border-[#5D7C50]/10 pb-8">
+        <div>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2F3E29]">
+            Derniers articles
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-[#2F3E29]/70 leading-relaxed md:whitespace-nowrap">
+            Des conseils fiables pour votre bien-être au quotidien et votre culture santé.
+          </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard key={article._id} article={article} />
-          ))}
-        </div>
+        {/* LIEN DE NAVIGATION STYLE GALERIE */}
+        <Link
+          to="/articles"
+          className="group inline-flex items-center gap-2 font-medium text-sm uppercase tracking-wider text-[#5D7C50] transition-colors hover:text-[#2F3E29]"
+        >
+          Voir tous les articles
+          <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
+      </div>
+
+      {/* GRILLE DE CARTES PARFAITEMENT ESPACÉES */}
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {articles.map((article) => (
+          <ArticleCard key={article._id} article={article} />
+        ))}
       </div>
     </section>
   );

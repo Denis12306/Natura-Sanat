@@ -4,86 +4,57 @@ import { BookOpen, UserRound, Newspaper } from "lucide-react";
 export default function FeaturesSection() {
   const items = [
     {
-      icon: <UserRound size={36} />,
+      icon: <UserRound size={24} className="stroke-[1.5]" />,
       title: "Professionnels certifiés",
-      text: (
-        <>
-          <p>Des praticiens qualifiés proches de chez vous.</p>
-
-          <Link
-            to="/professionals"
-            className="mt-6 inline-flex font-semibold text-green-700 transition hover:text-green-900 hover:underline"
-          >
-            Découvrir →
-          </Link>
-        </>
-      ),
+      desc: "Des praticiens qualifiés et sélectionnés avec soin proches de chez vous.",
+      link: "/professionals"
     },
     {
-      icon: <BookOpen size={36} />,
-      title: "Formations",
-      text: (
-        <>
-          <p>Développez votre savoir en Naturopathie.</p>
-
-          <Link
-            to="/courses"
-            className="mt-6 inline-flex font-semibold text-green-700 transition hover:text-green-900 hover:underline"
-          >
-            Découvrir →
-          </Link>
-        </>
-      ),
+      icon: <BookOpen size={24} className="stroke-[1.5]" />,
+      title: "Formations immersives",
+      desc: "Développez votre autonomie et votre savoir en Naturopathie.",
+      link: "/courses"
     },
     {
-      icon: <Newspaper size={36} />,
-      title: "Articles",
-      text: (
-        <>
-          <p>Des conseils fiables rédigés par des experts.</p>
-
-          <Link
-            to="/articles"
-            className="mt-6 inline-flex font-semibold text-green-700 transition hover:text-green-900 hover:underline"
-          >
-            Découvrir →
-          </Link>
-        </>
-      ),
+      icon: <Newspaper size={24} className="stroke-[1.5]" />,
+      title: "Articles & Sciences",
+      desc: "Des dossiers complets et des conseils fiables rédigés par des experts.",
+      link: "/articles"
     },
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-32 mb-32">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-
+    <section className="mx-auto max-w-7xl px-6 py-24 my-12">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {items.map((item) => (
-
           <div
             key={item.title}
-            className="group rounded-4xl border border-green-100 bg-white p-12 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+            className="relative flex flex-col justify-between p-10 rounded-4xl border border-[#5D7C50]/10 bg-white hover:bg-[#F5F2EB]/50 transition-all duration-300 group"
           >
+            <div>
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#5D7C50]/10 text-[#5D7C50] group-hover:bg-[#5D7C50] group-hover:text-white transition-all duration-300">
+                {item.icon}
+              </div>
 
-            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-green-100 text-green-700 transition group-hover:scale-110">
+              <h3 className="mb-3 text-2xl font-serif text-[#2F3E29]">
+                {item.title}
+              </h3>
 
-              {item.icon}
-
+              <p className="text-base leading-relaxed text-[#2F3E29]/70">
+                {item.desc}
+              </p>
             </div>
 
-            <h3 className="mb-5 text-3xl font-bold text-gray-900">
-              {item.title}
-            </h3>
-
-            <div className="space-y-6 text-lg leading-8 text-gray-600">
-
-              {item.text}
-
+            <div className="mt-8">
+              <Link
+                to={item.link}
+                className="inline-flex items-center gap-1 font-semibold text-sm text-[#5D7C50] hover:text-[#2F3E29] transition-colors"
+              >
+                Découvrir l'espace <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
             </div>
-
           </div>
-
         ))}
-
       </div>
     </section>
   );
