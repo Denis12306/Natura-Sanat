@@ -2,6 +2,7 @@ import "../../styles/header.css";
 import { Bell } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import SearchBar from "../SearchBar";
 
 export default function Header() {
 
@@ -11,7 +12,7 @@ export default function Header() {
 
     <header className="header">
 
-      <div />
+      <SearchBar />
 
       <div className="header-right">
 

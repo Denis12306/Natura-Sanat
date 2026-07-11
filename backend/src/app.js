@@ -6,6 +6,8 @@ const morgan = require("morgan");
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 
+const searchRoutes = require("./routes/search.routes");
+
 const app = express();
 
 app.use(helmet());
@@ -17,6 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 app.use("/api/users", userRoutes);
+
+app.use("/api/search", searchRoutes);
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({

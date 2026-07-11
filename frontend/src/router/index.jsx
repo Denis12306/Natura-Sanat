@@ -38,6 +38,8 @@ import AdminRoute from "../components/AdminRoute";
 
 import AboutPage from "../pages/About/AboutPage";
 
+import SearchPage from "../pages/SearchPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -89,6 +91,11 @@ const router = createBrowserRouter([
       {
         path: "professionals/:id",
         element: <ProfessionalDetailPage />,
+      },
+
+      {
+        path: "/search",
+        element: <SearchPage />
       },
 
       /* =============== PROFESSIONNEL =============== */
