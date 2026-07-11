@@ -11,6 +11,7 @@ import CoursesPage from "../pages/Courses/CoursesPage";
 import CourseDetailPage from "../pages/Courses/CourseDetailPage";
 import MyCourses from "../pages/Dashboard/Professional/MyCourses";
 import CreateCoursePage from "../pages/Courses/CreateCoursePage";
+import EditCoursePage from "../pages/Courses/EditCoursePage";
 
 import ArticlesPage from "../pages/Articles/ArticlesPage";
 import ArticleDetailPage from "../pages/Articles/ArticleDetailPage";
@@ -171,6 +172,15 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute roles={["professional", "admin"]}>
             <CreateCoursePage />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: "courses/edit/:id",
+        element: (
+          <ProtectedRoute roles={["professional", "admin"]}>
+            <EditCoursePage />
           </ProtectedRoute>
         ),
       },

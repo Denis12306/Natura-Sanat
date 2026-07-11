@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { getCourseById } from "../../api/courses";
 import { useAuth } from "../../context/AuthContext";
@@ -70,6 +70,8 @@ export default function CourseDetailPage() {
   };
 
   const isAdmin = user && user.role === "admin";
+  const isOwner = user && course.author?._id === user._id;
+  const canEdit = isOwner || isAdmin;
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -89,7 +91,7 @@ export default function CourseDetailPage() {
         {course.description || "Aucune description pour ce cours."}
       </p>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 flex-wrap">
         <p className="text-2xl font-bold text-green-600">
           {course.price !== undefined ? `${course.price} €` : "Prix non renseigné"}
         </p>
@@ -101,6 +103,15 @@ export default function CourseDetailPage() {
           >
             Modifier le tarif
           </button>
+        )}
+
+        {canEdit && (
+          <Link
+            to={`/courses/edit/${id}`}
+            className="text-sm bg-green-100 hover:bg-green-200 text-green-700 font-semibold py-2 px-4 rounded-lg transition duration-200"
+          >
+            Modifier le cours
+          </Link>
         )}
 
         {isAdmin && (

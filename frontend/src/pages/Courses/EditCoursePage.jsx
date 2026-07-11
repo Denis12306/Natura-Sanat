@@ -60,7 +60,7 @@ export default function EditCoursePage() {
 
   return (
 
-    <div style={{ maxWidth: 700, margin: "40px auto" }}>
+    <div style={{ maxWidth: 1500, margin: "40px auto" }}>
 
       <h1>Modifier le cours</h1>
 

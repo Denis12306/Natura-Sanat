@@ -42,7 +42,6 @@ export default function CoursesPage() {
         >
           Nos cours
         </h1>
-
         {canCreate && (
           <Link
             to="/courses/create"
@@ -60,9 +59,17 @@ export default function CoursesPage() {
         )}
       </div>
 
-      {courses.map((course) => (
-        <CourseCard key={course._id} course={course} />
-      ))}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill,minmax(340px,1fr))",
+          gap: "50px",
+        }}
+      >
+        {courses.map((course) => (
+          <CourseCard key={course._id} course={course} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -23,18 +23,16 @@ export default function FeaturedArticlesSection() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 my-12">
-      {/* EN-TÊTE DE LA SECTION ACCUEILLANTE ET CHIC */}
       <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end border-b border-[#5D7C50]/10 pb-8">
         <div>
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2F3E29]">
-            Derniers articles
+            Nos articles
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#2F3E29]/70 leading-relaxed md:whitespace-nowrap">
             Des conseils fiables pour votre bien-être au quotidien et votre culture santé.
           </p>
         </div>
 
-        {/* LIEN DE NAVIGATION STYLE GALERIE */}
         <Link
           to="/articles"
           className="group inline-flex items-center gap-2 font-medium text-sm uppercase tracking-wider text-[#5D7C50] transition-colors hover:text-[#2F3E29]"
@@ -44,7 +42,6 @@ export default function FeaturedArticlesSection() {
         </Link>
       </div>
 
-      {/* GRILLE DE CARTES PARFAITEMENT ESPACÉES */}
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
         {articles.map((article) => (
           <ArticleCard key={article._id} article={article} />
