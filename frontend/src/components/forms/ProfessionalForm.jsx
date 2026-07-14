@@ -126,7 +126,7 @@ export default function ProfessionalForm({
           name="bio"
           value={formData.bio}
           onChange={handleChange}
-          maxLength={1500}
+          maxLength={10000}
           placeholder="Présentez votre parcours, votre approche..."
           className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg leading-8 outline-none transition focus:border-green-600"
         />

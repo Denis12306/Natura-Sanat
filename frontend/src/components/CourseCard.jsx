@@ -1,16 +1,6 @@
 import { Link } from "react-router-dom";
 import { images } from "@/assets/images";
 
-function truncateText(text, maxLength = 120) {
-  if (!text) return "";
-  if (text.length <= maxLength) return text;
-
-  const truncated = text.slice(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(" ");
-
-  return truncated.slice(0, lastSpace) + "...";
-}
-
 const levelLabels = {
   beginner: "Débutant",
   intermediate: "Intermédiaire",
@@ -35,6 +25,9 @@ export default function CourseCard({ course }) {
           border: "1px solid #edf2e8",
           transition: ".25s",
           cursor: "pointer",
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
         }}
       >
         <img
@@ -47,7 +40,14 @@ export default function CourseCard({ course }) {
           }}
         />
 
-        <div style={{ padding: "18px" }}>
+        <div
+          style={{
+            padding: "18px",
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+          }}
+        >
           <span
             style={{
               display: "inline-block",
@@ -58,6 +58,7 @@ export default function CourseCard({ course }) {
               fontSize: "12px",
               fontWeight: 600,
               marginBottom: "14px",
+              alignSelf: "flex-start",
             }}
           >
             {course.category}
@@ -77,10 +78,13 @@ export default function CourseCard({ course }) {
             style={{
               color: "#6b7280",
               lineHeight: 1.6,
-              minHeight: 70,
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           >
-            {truncateText(course.description)}
+            {course.description}
           </p>
 
           <div
@@ -126,6 +130,7 @@ export default function CourseCard({ course }) {
               borderRadius: "12px",
               fontWeight: 600,
               cursor: "pointer",
+              marginTop: "auto",
             }}
           >
             Voir le cours
