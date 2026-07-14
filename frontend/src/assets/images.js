@@ -10,6 +10,8 @@ export const images = {
   defaultProfessional: "https://res.cloudinary.com/ddvpdcluh/image/upload/v1782576119/usman-yousaf-pTrhfmj2jDA-unsplash_zyekbs.jpg",
 
   defaultAvatar: "https://res.cloudinary.com/ddvpdcluh/image/upload/v1782576119/online-marketing-hIgeoQjS_iE-unsplash_x4mvni.jpg",
+
+  perso: "https://res.cloudinary.com/ddvpdcluh/image/upload/v1784040640/Photo1_ffz2zc.png"
 };
 
 export default images;

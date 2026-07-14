@@ -1,3 +1,5 @@
+import images from "../../assets/images";
+
 export default function AboutPage() {
   return (
     <div
@@ -114,6 +116,7 @@ export default function AboutPage() {
           borderRadius: "24px",
           padding: "50px",
           textAlign: "center",
+          marginBottom: "40px",
         }}
       >
         <h2
@@ -141,44 +144,85 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Section Qui suis-je ? modifiée */}
       <div
         style={{
           background: "#FFDEAD",
           borderRadius: "24px",
           padding: "50px",
-          textAlign: "center",
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "40px",
         }}
       >
-        <h2
+        {/* Cadre Photo */}
+        <div
           style={{
-            fontSize: "38px",
-            marginBottom: 20,
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "5px solid white",
+            boxShadow: "0 10px 25px rgba(0,0,0,.1)",
+            backgroundColor: "#f3f4f6",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+            flexShrink: 0,
           }}
         >
-          Qui suis-je ?
-        </h2>
+          <img
+            src={images?.perso}
+            alt="Mon portrait"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+              e.currentTarget.parentElement.innerHTML =
+                '<span style="color: #888; font-size: 14px; font-weight: 500; text-align: center; padding: 15px;">Ajoute ta photo ici 📷</span>';
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
 
-        <p
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            lineHeight: 1.8,
-            fontSize: "18px",
-            color: "#555",
-          }}
-        >
-          Développeur en herbe, je construis ce site web pour valider
-          mon cursus de développeur web et web mobile à Holberton School Laval.
-          De formation officinale et étant Naturothérapeute, l'idée de mettre
-          à disposition mes connaissances et ainsi que de celles et ceux qui ont
-          partagé ces 3 années d'études à Idenat faisait sens.
-          Ce site permet de donner sous forme d'articles et de cours une
-          compréhension du corps humain, comme ce que le père de la médecine
-          Hippocrate aimait prodiguer de son temps. Ce site permet également
-          de référencer les Naturothérapeutes pour suivi personnel.
-        </p>
+        {/* Contenu Texte */}
+        <div style={{ flex: "1", minWidth: "300px", textAlign: "left" }}>
+          <h2
+            style={{
+              fontSize: "38px",
+              marginBottom: 20,
+              color: "#1f2937",
+            }}
+          >
+            Qui suis-je ?
+          </h2>
+
+          <p
+            style={{
+              lineHeight: 1.8,
+              fontSize: "18px",
+              color: "#555",
+            }}
+          >
+            Développeur en herbe, je construis ce site web pour valider mon
+            cursus de développeur web et web mobile à Holberton School Laval.
+            De formation officinale et étant Naturothérapeute, l'idée de mettre
+            à disposition mes connaissances ainsi que celles de ceux qui ont
+            partagé ces 3 années d'études à Idenat faisait sens.
+          <br />
+            Ce site permet de donner sous forme d'articles et de cours une
+            compréhension du corps humain, comme ce que le père de la médecine
+            Hippocrate aimait prodiguer de son temps.
+          <br />
+            Ce site permet également de référencer les Naturothérapeutes pour un suivi personnel.
+          </p>
+        </div>
       </div>
-
     </div>
   );
 }
