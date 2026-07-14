@@ -87,9 +87,45 @@ export default function CourseDetailPage() {
         {course.title || "Titre non renseigné"}
       </h1>
 
-      <p className="text-gray-700 mb-6">
-        {course.description || "Aucune description pour ce cours."}
-      </p>
+      {user ? (
+
+        <p className="text-gray-700 mb-6">
+          {course.description || "Aucune description pour ce cours."}
+        </p>
+
+      ) : (
+
+        <div className="mb-8 rounded-2xl border border-green-200 bg-green-50 p-8">
+
+          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            🔒 Formation réservée aux membres
+          </h2>
+
+          <p className="mb-6 text-gray-600">
+            Connectez-vous ou créez un compte gratuitement pour accéder au contenu complet de cette formation.
+          </p>
+
+          <div className="flex gap-4">
+
+            <Link
+              to="/login"
+              className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700"
+            >
+              Se connecter
+            </Link>
+
+            <Link
+              to="/register"
+              className="rounded-xl border border-green-600 px-6 py-3 font-semibold text-green-700 transition hover:bg-green-100"
+            >
+              Créer un compte
+            </Link>
+
+          </div>
+
+        </div>
+
+      )}
 
       <div className="flex items-center gap-4 flex-wrap">
         <p className="text-2xl font-bold text-green-600">
