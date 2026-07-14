@@ -12,7 +12,7 @@ export default function CourseForm({
     description: initialValues.description || "",
     category: initialValues.category || "",
     duration: initialValues.duration || "",
-    level: initialValues.level || "beginner",
+    level: initialValues.level || "",
     price: initialValues.price || "",
     image: null,
   });
@@ -69,7 +69,7 @@ export default function CourseForm({
           name="title"
           value={formData.title}
           onChange={handleChange}
-          placeholder="Titre du cours"
+          placeholder=""
           className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
         />
       </div>
@@ -83,13 +83,13 @@ export default function CourseForm({
           name="category"
           value={formData.category}
           onChange={handleChange}
-          placeholder="Ex : Aromathérapie"
+          placeholder=""
           className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
         />
       </div>
 
       {/* Durée + Niveau côte à côte */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid gap-6 md:grid-cols-3">
         <div>
           <label className="mb-2 block font-semibold text-gray-700">
             Durée (en heures)
@@ -97,9 +97,10 @@ export default function CourseForm({
           <input
             type="number"
             name="duration"
+            min="0"
             value={formData.duration}
             onChange={handleChange}
-            placeholder="Ex : 4"
+            placeholder=""
             className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
           />
         </div>
@@ -112,12 +113,31 @@ export default function CourseForm({
             name="level"
             value={formData.level}
             onChange={handleChange}
-            className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
+            className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600 bg-white"
           >
+            <option value="" disabled hidden>
+            </option>
             <option value="beginner">Débutant</option>
             <option value="intermediate">Intermédiaire</option>
             <option value="advanced">Avancé</option>
           </select>
+        </div>
+
+        <div>
+          <label className="mb-2 block font-semibold text-gray-700">
+            Tarif (€)
+          </label>
+
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            placeholder=""
+            className="w-full rounded-2xl border border-gray-300 px-5 py-4 text-lg outline-none transition focus:border-green-600"
+          />
         </div>
       </div>
 

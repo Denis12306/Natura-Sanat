@@ -89,9 +89,18 @@ export default function CourseDetailPage() {
 
       {user ? (
 
-        <p className="text-gray-700 mb-6">
-          {course.description || "Aucune description pour ce cours."}
-        </p>
+        <div className="mb-8 space-y-6 text-lg leading-9 text-gray-700">
+          {course.description
+            ? course.description
+              .split("\n")
+              .filter(Boolean)
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))
+            : (
+              <p>Aucune description.</p>
+            )}
+        </div>
 
       ) : (
 
