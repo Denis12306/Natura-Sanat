@@ -16,6 +16,7 @@ const {
   authorize
 } = require("../middleware/role.middleware");
 
+// Envoie aux routes professionnels indiquées
 router.get(
   "/",
   professionalController.getProfessionals

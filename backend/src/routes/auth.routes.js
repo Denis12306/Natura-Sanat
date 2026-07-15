@@ -10,6 +10,7 @@ const {
   protect
 } = require("../middleware/auth.middleware");
 
+// Envoie aux routes indiquées pour se connecter
 router.post(
   "/register",
   authController.register

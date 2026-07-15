@@ -1,6 +1,8 @@
 const { verifyToken } = require("../config/jwt");
 const User = require("../models/User");
 
+// Valide la fonction protectection
+
 const protect = async (req, res, next) => {
   try {
     let token;

@@ -1,6 +1,7 @@
 const User = require("../models/User");
-const authService = require("../services/auth.service"); // ← ligne manquante, ajoutée ici
+const authService = require("../services/auth.service");
 
+// Appelle la fonction getUsers
 const getUsers = async (req, res) => {
   const users = await User.find().select("-password");
   res.json({
@@ -9,6 +10,7 @@ const getUsers = async (req, res) => {
   });
 };
 
+// Appelle la fonction createUser
 const createUser = async (req, res) => {
   try {
     const user = await authService.adminCreateUser(req.body);
@@ -25,6 +27,7 @@ const createUser = async (req, res) => {
   }
 };
 
+// Appelle la fonction getUserById
 const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select("-password");
@@ -46,6 +49,7 @@ const getUserById = async (req, res) => {
   }
 };
 
+// Appelle la fonction updateUser
 const updateUser = async (req, res) => {
   const user = await User.findByIdAndUpdate(
     req.params.id,
@@ -60,6 +64,7 @@ const updateUser = async (req, res) => {
   });
 };
 
+// Appelle la fonction deleteUser
 const deleteUser = async (req, res) => {
   await User.findByIdAndDelete(req.params.id);
   res.json({

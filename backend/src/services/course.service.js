@@ -1,5 +1,7 @@
 const Course = require("../models/Course");
 
+// Logique métier de la création des cours
+
 const createCourse = async (data, authorId) => {
   return Course.create({
     ...data,
@@ -7,16 +9,19 @@ const createCourse = async (data, authorId) => {
   });
 };
 
+// Obtenir un cours
 const getCourses = async () => {
   return Course.find()
     .populate("author", "firstName lastName");
 };
 
+// Obtenir un cours par ID
 const getCourseById = async (id) => {
   return Course.findById(id)
     .populate("author", "firstName lastName");
 };
 
+// Mettre à jour un cours
 const updateCourse = async (courseId, user, data) => {
   const course = await Course.findById(courseId);
 
@@ -41,6 +46,7 @@ const updateCourse = async (courseId, user, data) => {
   );
 };
 
+// Supprimer un cours
 const deleteCourse = async (courseId, user) => {
   const course = await Course.findById(courseId);
 

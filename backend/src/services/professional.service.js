@@ -4,6 +4,9 @@ const {
   deleteImage,
 } = require("./cloudinary.service");
 
+// Logique métier des professionnels
+
+// Créer un profil
 const createProfile = async (data, userId) => {
   const existingProfile = await Professional.findOne({
     user: userId
@@ -19,6 +22,7 @@ const createProfile = async (data, userId) => {
   });
 };
 
+// Obtenir mon profil
 const getMyProfile = async (userId) => {
 
   return Professional.findOne({
@@ -30,6 +34,7 @@ const getMyProfile = async (userId) => {
 
 };
 
+// Obtenir le profil pofessionnel
 const getProfessionals = async (filters) => {
   const query = {};
 
@@ -47,12 +52,14 @@ const getProfessionals = async (filters) => {
   return Professional.find(query)
     .populate("user", "firstName lastName email");
 };
+
+// Obtenir le professionnel par l'ID
 const getProfessionalById = async (id) => {
   return Professional.findById(id)
     .populate("user", "firstName lastName email");
 };
 
-
+// Mettre à jour le profil du professionnel
 const updateProfile = async (profileId, user, data) => {
   const profile = await Professional.findById(profileId);
 
@@ -79,6 +86,7 @@ const updateProfile = async (profileId, user, data) => {
   );
 };
 
+// Supprimer le profil
 const deleteProfile = async (profileId, user) => {
 
   const profile =

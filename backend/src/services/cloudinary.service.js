@@ -1,6 +1,9 @@
 const cloudinary = require("../config/cloudinary");
 const streamifier = require("streamifier");
 
+// logique métier de cloudinary
+
+// Téléchargement d'images
 const uploadImage = (buffer, folder) => {
   return new Promise((resolve, reject) => {
 
@@ -25,6 +28,7 @@ const uploadImage = (buffer, folder) => {
   });
 };
 
+// Suppression d'images
 const deleteImage = async (publicId) => {
 
   if (!publicId) {
@@ -35,6 +39,7 @@ const deleteImage = async (publicId) => {
 
 };
 
+// Remplacement d'images
 const replaceImage = async (
   oldPublicId,
   buffer,

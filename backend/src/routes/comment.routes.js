@@ -10,6 +10,7 @@ const {
   protect
 } = require("../middleware/auth.middleware");
 
+// Envoie aux routes des commentaires indiqués
 router.post(
   "/",
   protect,

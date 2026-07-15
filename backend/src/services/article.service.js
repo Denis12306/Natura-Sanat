@@ -1,6 +1,7 @@
 const Article = require("../models/Article");
 const cloudinary = require("../config/cloudinary");
 
+// Permet de télécharger via Cloudinary
 function uploadToCloudinary(buffer) {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
@@ -13,6 +14,8 @@ function uploadToCloudinary(buffer) {
     stream.end(buffer);
   });
 }
+
+// Logique métier de la crétion d'un article
 
 const createArticle = async (data, authorId, file) => {
   let imageData = {};
@@ -32,14 +35,17 @@ const createArticle = async (data, authorId, file) => {
   });
 };
 
+// Obtenir l'article
 const getArticles = async () => {
   return Article.find().populate("author", "firstName lastName");
 };
 
+// Obtenir l'article par l'ID
 const getArticleById = async (id) => {
   return Article.findById(id).populate("author", "firstName lastName");
 };
 
+// Obtenir mon article
 const getMyArticles = async (userId) => {
   return Article.find({ author: userId }).populate(
     "author",
@@ -47,6 +53,7 @@ const getMyArticles = async (userId) => {
   );
 };
 
+// Mettre à jour l'article
 const updateArticle = async (articleId, user, data, file) => {
   const article = await Article.findById(articleId);
 
@@ -79,6 +86,7 @@ const updateArticle = async (articleId, user, data, file) => {
   });
 };
 
+// Supprimer l'article
 const deleteArticle = async (articleId, user) => {
   const article = await Article.findById(articleId);
 

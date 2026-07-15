@@ -1,5 +1,7 @@
 const commentService = require("../services/comment.service");
 
+// Appelle la fonction createComment
+
 const createComment = async (req, res) => {
   try {
     const comment = await commentService.createComment(
@@ -20,6 +22,7 @@ const createComment = async (req, res) => {
   }
 };
 
+// Appelle la fonction getComment
 const getComments = async (req, res) => {
   const comments =
     await commentService.getCommentsByArticle(

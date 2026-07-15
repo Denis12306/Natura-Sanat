@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Définit le modèle des commentaires
+
 const commentSchema = new mongoose.Schema(
   {
     content: {

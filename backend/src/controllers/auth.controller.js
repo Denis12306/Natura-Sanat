@@ -1,5 +1,7 @@
 const authService = require("../services/auth.service");
 
+// Appelle la fonction register
+
 const register = async (req, res) => {
   try {
     const result = await authService.register(req.body);
@@ -17,6 +19,7 @@ const register = async (req, res) => {
   }
 };
 
+// Appelle la fonction login
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -39,6 +42,7 @@ const login = async (req, res) => {
   }
 };
 
+// Appelle la fonction getMe
 const getMe = async (req, res) => {
   res.status(200).json({
     success: true,

@@ -1,5 +1,7 @@
 const multer = require("multer");
 
+// Gère le format des images et le stockage dans la mémoire
+
 const storage = multer.memoryStorage();
 
 const upload = multer({

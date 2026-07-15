@@ -1,5 +1,7 @@
 const articleService = require("../services/article.service");
 
+// Appelle la fonction CreateArticle
+
 const createArticle = async (req, res) => {
   try {
     const article = await articleService.createArticle(
@@ -21,6 +23,7 @@ const createArticle = async (req, res) => {
   }
 };
 
+// Appelle la fonction getArticle
 const getArticles = async (req, res) => {
   const articles = await articleService.getArticles();
 
@@ -30,6 +33,7 @@ const getArticles = async (req, res) => {
   });
 };
 
+// Appelle la fonction getArticlebyId
 const getArticleById = async (req, res) => {
   const article = await articleService.getArticleById(
     req.params.id
@@ -48,6 +52,7 @@ const getArticleById = async (req, res) => {
   });
 };
 
+// Appelle la fonction getMyArticle
 const getMyArticles = async (req, res) => {
 
   const articles = await articleService.getMyArticles(
@@ -61,6 +66,7 @@ const getMyArticles = async (req, res) => {
 
 };
 
+// Appelle la fonction updateArticle
 const updateArticle = async (req, res) => {
   try {
     const article = await articleService.updateArticle(
@@ -86,6 +92,7 @@ const updateArticle = async (req, res) => {
   }
 };
 
+// Appelle la fonction deleteArticle
 const deleteArticle = async (req, res) => {
   try {
     await articleService.deleteArticle(

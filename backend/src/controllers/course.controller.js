@@ -6,6 +6,7 @@ const {
   deleteImage,
 } = require("../services/cloudinary.service");
 
+// Appelle la fonction createCourse
 const createCourse = async (req, res) => {
   try {
 
@@ -50,6 +51,7 @@ const createCourse = async (req, res) => {
   }
 };
 
+// Appelle la fonction getCourses
 const getCourses = async (req, res) => {
   const courses = await courseService.getCourses();
 
@@ -59,7 +61,7 @@ const getCourses = async (req, res) => {
   });
 };
 
-
+// Appelle la fonction getMyCourses
 const getMyCourses = async (req, res) => {
 
   const courses = await courseService.getMyCourses(req.user._id);
@@ -71,6 +73,7 @@ const getMyCourses = async (req, res) => {
 
 };
 
+// Appelle la fonction getCourseById
 const getCourseById = async (req, res) => {
   const course = await courseService.getCourseById(
     req.params.id
@@ -89,6 +92,7 @@ const getCourseById = async (req, res) => {
   });
 };
 
+// Appelle la fonction updateCourse
 const updateCourse = async (req, res) => {
   try {
 
@@ -141,6 +145,7 @@ const updateCourse = async (req, res) => {
   }
 };
 
+// Appelle la fonction deleteCourse
 const deleteCourse = async (req, res) => {
   try {
 

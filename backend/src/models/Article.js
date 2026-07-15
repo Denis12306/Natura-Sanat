@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Définit le modèle des articles
+
 const articleSchema = new mongoose.Schema(
   {
     title: {
@@ -33,7 +35,7 @@ const articleSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    
+
     published: {
       type: Boolean,
       default: false

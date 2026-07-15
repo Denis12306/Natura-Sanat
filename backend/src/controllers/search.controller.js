@@ -1,5 +1,7 @@
 const searchService = require("../services/search.service");
 
+// Appelle la fonction search
+
 const search = async (req, res) => {
 
     try {

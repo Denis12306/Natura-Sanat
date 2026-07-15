@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Définit le modèle des Users
+
 const userSchema = new mongoose.Schema(
   {
     firstName: {

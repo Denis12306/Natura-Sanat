@@ -16,7 +16,10 @@ const {
   authorize
 } = require("../middleware/role.middleware");
 
-router.get("/", courseController.getCourses);
+// Envoie aux routes des cours indiquées
+router.get(
+  "/",
+  courseController.getCourses);
 
 router.get(
   "/me",
@@ -25,7 +28,9 @@ router.get(
   courseController.getMyCourses
 );
 
-router.get("/:id", courseController.getCourseById);
+router.get(
+  "/:id",
+  courseController.getCourseById);
 
 router.post(
   "/",

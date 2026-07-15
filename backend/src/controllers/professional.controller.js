@@ -10,6 +10,7 @@ const professionalService = require(
   "../services/professional.service"
 );
 
+// Appelle la fonction createProfile
 const createProfile = async (req, res) => {
   try {
     let profileImage = "";
@@ -53,6 +54,7 @@ const createProfile = async (req, res) => {
   }
 };
 
+// Appelle la fonction getProfessionals
 const getProfessionals = async (req, res) => {
   const professionals =
   await professionalService.getProfessionals(
@@ -65,6 +67,7 @@ const getProfessionals = async (req, res) => {
   });
 };
 
+// Appelle la fonction getMyProfile
 const getMyProfile = async (req,res)=>{
 
     const profile =
@@ -79,6 +82,7 @@ const getMyProfile = async (req,res)=>{
 
 };
 
+// Appelle la fonction getProfessionalById
 const getProfessionalById = async (req, res) => {
   const profile =
     await professionalService.getProfessionalById(
@@ -98,6 +102,7 @@ const getProfessionalById = async (req, res) => {
   });
 };
 
+// Appelle la fonction updateProfile
 const updateProfile = async (req, res) => {
 
   try {
@@ -157,6 +162,7 @@ const updateProfile = async (req, res) => {
 
 };
 
+// Appelle la fonction deleteProfile
 const deleteProfile = async (req, res) => {
 
   try {

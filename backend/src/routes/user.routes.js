@@ -14,6 +14,7 @@ const { authorize } = require("../middleware/role.middleware");
 
 const router = express.Router();
 
+// Envoie aux routes des utilisateurs indiquées
 router.post("/", protect, authorize("admin"), createUser);
 
 router.get("/", protect, authorize("admin"), getUsers);

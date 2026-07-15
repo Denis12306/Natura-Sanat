@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Définit le modèle des Professionnels
+
 const professionalSchema = new mongoose.Schema(
   {
     user: {

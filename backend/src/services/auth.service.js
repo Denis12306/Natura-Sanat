@@ -5,11 +5,13 @@ const { generateToken } = require("../config/jwt");
 const register = async (userData) => {
   const { firstName, lastName, email, password } = userData;
 
+  // Utilisateur existant ?
   const existingUser = await User.findOne({ email });
   if (existingUser) {
     throw new Error("User already exists");
   }
 
+  // Hash le mot de passe
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const user = await User.create({
@@ -24,7 +26,7 @@ const register = async (userData) => {
   return { user, token };
 };
 
-// Réservée aux admins : permet de créer un utilisateur avec un rôle précis
+// Réservée aux admins, permet de créer un utilisateur avec un rôle précis
 const adminCreateUser = async (userData) => {
   const { firstName, lastName, email, password, role } = userData;
 
@@ -46,6 +48,7 @@ const adminCreateUser = async (userData) => {
   return user;
 };
 
+// Connexion avec email et mot de passe
 const login = async (email, password) => {
   const user = await User.findOne({ email });
   if (!user) {

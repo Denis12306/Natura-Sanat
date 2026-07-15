@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Définit le modèle des cours
+
 const courseSchema = new mongoose.Schema(
   {
     title: {

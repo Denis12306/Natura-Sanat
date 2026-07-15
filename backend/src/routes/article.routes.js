@@ -10,7 +10,10 @@ const {authorize} = require("../middleware/role.middleware");
 
 const upload = require("../middleware/upload.middleware");
 
-router.get("/", articleController.getArticles);
+// Envoie aux routes des articles indiquées
+router.get(
+  "/",
+  articleController.getArticles);
 
 router.get(
   "/me",
@@ -19,7 +22,9 @@ router.get(
   articleController.getMyArticles
 );
 
-router.get("/:id", articleController.getArticleById);
+router.get(
+  "/:id",
+  articleController.getArticleById);
 
 router.post(
   "/",

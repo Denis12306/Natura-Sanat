@@ -23,6 +23,7 @@ function buildWordConditions(keyword, fields) {
   });
 }
 
+// La recherche
 const search = async (keyword) => {
   if (!keyword || !keyword.trim()) {
     return {
