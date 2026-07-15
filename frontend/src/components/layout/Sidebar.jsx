@@ -55,7 +55,7 @@ export default function Sidebar() {
           </NavLink>
           <NavLink to="/professionals" onClick={closeMenu}>
             <Users size={18} />
-            Naturothérapeutes
+            Professionnels
           </NavLink>
           <NavLink to="/about" onClick={closeMenu}>
             <Info size={18} />

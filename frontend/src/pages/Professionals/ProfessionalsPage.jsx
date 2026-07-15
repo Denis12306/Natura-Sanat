@@ -76,7 +76,7 @@ export default function ProfessionalsPage() {
           fontSize: "34px",
           color: "#3d5d36",
         }}
-      >Nos professionnels</h1>
+      >Nos Naturothérapeutes</h1>
 
       <input
         placeholder="Recherche..."

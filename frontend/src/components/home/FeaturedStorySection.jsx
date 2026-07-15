@@ -58,19 +58,26 @@ export default function StorySection() {
       {/* --------------------------- */}
 
       <p className="relative text-left text-lg leading-9 text-gray-700 md:text-xl">
-        Développeur en herbe, je construis ce site pour valider mon
-        cursus de développeur web et web mobile à Holberton School
-        Laval. Préparateur en Pharmacie de formation et Naturothérapeute,
-        l'idée de mettre à disposition mes connaissances, ainsi que celles de
-        celles et ceux qui ont partagé ces trois années d'études à
-        Idenat, faisait sens.
-        <br /><br />
-        Ce site permet de donner, sous forme d'articles et de cours,
-        une compréhension du corps humain — comme ce qu'Hippocrate,
-        le père de la médecine, aimait déjà prodiguer en son temps.
-        <br /><br />
-        Il permet également de référencer les Naturothérapeutes pour
-        un suivi personnalisé.
+        Développeur web en devenir, j'ai conçu Natura Sanat dans le cadre de la
+        validation de mon cursus de Développeur Web et Web Mobile à Holberton School Laval.
+        Ce projet est né de la rencontre entre deux univers qui me passionnent :
+        le développement informatique et la santé naturelle.
+        <br></br>
+        Préparateur en pharmacie de formation, puis diplômé en naturopathie après
+        trois années d'études à IDENAT, j'ai souhaité créer une plateforme permettant
+        de rendre ces connaissances accessibles au plus grand nombre. L'objectif est
+        de transmettre un savoir fiable, compréhensible et fondé sur une approche globale de la santé.
+        <br></br>
+        Natura Sanat propose ainsi des articles et des formations destinés à mieux comprendre
+        le fonctionnement du corps humain, dans l'esprit d'Hippocrate, considéré
+        comme le père de la médecine, qui plaçait déjà la prévention et l'hygiène de vie au cœur de la santé.
+        <br></br>
+        La plateforme permet également de découvrir et de référencer des naturothérapeutes qualifiés,
+        afin de faciliter la mise en relation entre les praticiens et les personnes souhaitant bénéficier d'un accompagnement personnalisé.
+        <br></br>
+        Au-delà d'un simple projet de fin d'études, Natura Sanat représente la volonté de réunir mes
+        compétences techniques et mon expérience dans le domaine de la santé pour proposer un outil utile,
+        moderne et évolutif au service du bien-être.
       </p>
 
       <div className="relative mt-10 flex items-center justify-center gap-4">
