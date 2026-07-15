@@ -1,3 +1,4 @@
+// Tableau permettant de réutiliser le template pour cours, articles etc...
 export default function AdminTable({
   columns,
   data,

@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 
+// Page de détail d'un professionnel (affiche sa bio, ses spécialités et ses coordonnées)
 export default function ProfessionalDetailPage() {
   const { id } = useParams();
   const { user } = useAuth();

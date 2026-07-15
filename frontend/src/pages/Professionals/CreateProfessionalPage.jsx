@@ -4,12 +4,13 @@ import axios from "../../api/axios";
 import ProfessionalForm from "../../components/forms/ProfessionalForm";
 import { useAuth } from "../../context/AuthContext";
 
+// Page de création d'une fiche professionnelle
 export default function CreateProfessionalPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
 
-  const [mode, setMode] = useState("existing"); // "existing" | "new"
+  const [mode, setMode] = useState("existing");
   const [users, setUsers] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState("");
 

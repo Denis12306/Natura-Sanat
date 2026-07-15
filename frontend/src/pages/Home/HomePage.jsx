@@ -6,6 +6,7 @@ import FeaturedProfessionalsSection from "../../components/home/FeaturedProfessi
 import CtaSection from "../../components/home/CtaSection";
 import FeaturedStorySection from "../../components/home/FeaturedStorySection";
 
+// Page principale avec les features ci dessous
 export default function HomePage() {
   return (
     <div

@@ -1,3 +1,4 @@
+// bouton réutilisable et personnalisable pour pages d'administration.
 export default function AdminButton({
   children,
   onClick,

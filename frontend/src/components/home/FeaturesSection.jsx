@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BookOpen, UserRound, Newspaper } from "lucide-react";
 
+// Ce composant affiche la liste des 3 features pour la landing page
 export default function FeaturesSection() {
   const items = [
     {

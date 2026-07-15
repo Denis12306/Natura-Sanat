@@ -1,6 +1,7 @@
 import { Quote } from "lucide-react";
 import images from "../../assets/images";
 
+// Ce composant permet d'implémenter pour la landing page, la partie Histoire personnelle
 export default function StorySection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-4">

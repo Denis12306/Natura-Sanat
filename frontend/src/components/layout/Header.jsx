@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import SearchBar from "../SearchBar";
 
+// Barre du haut de Page (Header)
 export default function Header() {
 
   const { user, logout } = useAuth();

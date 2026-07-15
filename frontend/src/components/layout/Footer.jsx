@@ -1,3 +1,4 @@
+// Barre du pied de page
 export default function Footer() {
   return (
     <footer

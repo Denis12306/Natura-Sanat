@@ -7,6 +7,7 @@ const levelLabels = {
   advanced: "Avancé",
 };
 
+// Affiche un aperçu d'un cours sous forme de carte cliquable
 export default function CourseCard({ course }) {
   return (
     <Link

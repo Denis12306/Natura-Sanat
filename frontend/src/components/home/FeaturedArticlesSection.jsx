@@ -4,6 +4,7 @@ import axios from "../../api/axios";
 import { ArrowRight } from "lucide-react";
 import ArticleCard from "../ArticleCard";
 
+// Ce composant récupère la liste de 3 articles depuis l'API pour la landing page
 export default function FeaturedArticlesSection() {
   const [articles, setArticles] = useState([]);
 

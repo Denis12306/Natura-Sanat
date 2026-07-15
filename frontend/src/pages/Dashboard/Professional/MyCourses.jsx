@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import axios from "../../../api/axios";
 
+// Composant permettant à un professionnel de gérer ses cours (affichage, modification, suppression)
 export default function MyCourses() {
 
   const [courses, setCourses] = useState([]);

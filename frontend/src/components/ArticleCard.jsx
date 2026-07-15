@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import images from "../assets/images";
 
+// Affiche un aperçu d'un article sous forme de carte cliquable
 export default function ArticleCard({ article }) {
   return (
     <Link

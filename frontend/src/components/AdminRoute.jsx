@@ -1,7 +1,8 @@
 import { Navigate } from "react-router-dom";
 
+// Permet de sécuriser l'accés aux routes Admin
 export default function AdminRoute({ children }) {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user, loading } = useContext(AuthContext);
 
   if (!user) {
     return <Navigate to="/login" replace />;

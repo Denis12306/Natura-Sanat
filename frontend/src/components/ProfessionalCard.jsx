@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// Affiche un aperçu d'un professionnel sous forme de carte cliquable
 export default function ProfessionalCard({ professional }) {
   return (
     <div

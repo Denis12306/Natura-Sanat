@@ -1,3 +1,4 @@
+// Fenêtre modale de confirmation lorsque suppression
 export default function DeleteModal({
   open,
   onConfirm,

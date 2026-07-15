@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Formulaire réutilisable servant à la fois pour la création et l'édition d'un cours.
 export default function CourseForm({
   initialValues = {},
   onSubmit,

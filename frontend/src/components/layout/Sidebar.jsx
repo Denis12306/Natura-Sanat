@@ -12,6 +12,7 @@ import {
 import { NavLink } from "react-router-dom";
 import "../../styles/sidebar.css";
 
+// Menu d'accès de gauche avec les différentes options pour navigation
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 

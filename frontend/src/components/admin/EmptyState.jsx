@@ -1,3 +1,4 @@
+// Gérer l'affichage de manière élégante et propre lorsqu'il n'y a aucune donnée à afficher sur une page
 export default function EmptyState({ text }) {
   return (
     <div

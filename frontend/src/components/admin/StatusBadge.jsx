@@ -1,3 +1,4 @@
+// Code couleur pour status
 export default function StatusBadge({ role }) {
   const colors = {
     admin: "#d32f2f",

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 import axios from "../../../api/axios";
 
+// Composant permettant à un professionnel de visualiser, modifier ou supprimer ses propres articles
 export default function MyArticles() {
 
-  const [articles, setArticle] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     fetchArticles();
@@ -33,7 +34,7 @@ export default function MyArticles() {
 
     try {
 
-      await axios.delete(`/article/${id}`);
+      await axios.delete(`/articles/${id}`);
 
       fetchArticles();
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Formulaire réutilisable servant pour la création et l'édition d'un article
 export default function ArticleForm({
   initialValues,
   onSubmit,

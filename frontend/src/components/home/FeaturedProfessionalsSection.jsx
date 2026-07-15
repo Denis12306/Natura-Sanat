@@ -4,6 +4,7 @@ import axios from "../../api/axios";
 import { ArrowRight } from "lucide-react";
 import ProfessionalCard from "../ProfessionalCard";
 
+// Ce composant récupère la liste de 3 professionnels depuis l'API pour la landing page
 export default function FeaturedProfessionalsSection() {
   const [professionals, setProfessionals] = useState([]);
 

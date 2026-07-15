@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../api/axios";
 import ProfessionalForm from "../../components/forms/ProfessionalForm";
 
+// Composant qui permet d'éditer une page professionnel
 export default function EditProfessionalPage() {
   const { id } = useParams();
   const navigate = useNavigate();

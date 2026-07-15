@@ -1,3 +1,4 @@
+// Harmoniser le haut de toutes les pages d'administration
 export default function AdminHeader({
   title,
   subtitle,

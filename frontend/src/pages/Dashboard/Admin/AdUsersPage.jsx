@@ -6,8 +6,10 @@ import AdminTable from "@/components/admin/AdminTable";
 import AdminButton from "@/components/admin/AdminButton";
 import StatusBadge from "@/components/admin/StatusBadge";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
+import DeleteModal from "../../../components/admin/DeleteModal";
 import EmptyState from "@/components/admin/EmptyState";
 
+// Page de création de la fonction UsersPage
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,6 +39,7 @@ export default function UsersPage() {
     }
   };
 
+  // Suppression d'un user
   const deleteUser = async (id) => {
     const confirmDelete = window.confirm(
       "Voulez-vous vraiment supprimer cet utilisateur ?"

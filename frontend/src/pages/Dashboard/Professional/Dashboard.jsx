@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// Création page Dashboard pro
 export default function ProfessionalDashboard() {
   return (
     <div style={{ padding: "30px" }}>

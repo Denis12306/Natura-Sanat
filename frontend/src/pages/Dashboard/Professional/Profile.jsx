@@ -1,3 +1,4 @@
+// Composant gérant l'affichage et l'édition des informations personnelles de l'utilisateur
 export default function Profile() {
   return (
     <div style={{ padding: "30px" }}>

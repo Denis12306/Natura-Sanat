@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import images from "../../assets/images";
 
+// Ce composant créer et affiche le bloc de présentation pour la landing page
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[#F5F2EB] px-6 py-20 lg:px-16 lg:py-28 border-bottom-right-radius: 50px;">

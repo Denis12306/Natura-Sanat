@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// Bandeau de la page d'accueil qui permet de créer un compte ou voir l'annuaire
 export default function CtaSection() {
   return (
     <section className="mx-auto my-24 max-w-7xl px-6 w-full flex justify-center">

@@ -5,6 +5,7 @@ import axios from "../../api/axios";
 
 import ProfessionalCard from "../../components/ProfessionalCard";
 
+// Page de l'annuaire des professionnels avec recherche filtrée par nom, ville ou spécialité
 export default function ProfessionalsPage() {
   const [professionals, setProfessionals] = useState([]);
 
@@ -33,23 +34,19 @@ export default function ProfessionalsPage() {
     setLoading(false);
   }
 
-  const filtered =
-    professionals.filter((professional) => {
-      const fullName =
-        `${professional.user?.firstName} ${professional.user?.lastName}`;
+  const filtered = professionals.filter((professional) => {
+    const firstName = professional.user?.firstName || "";
+    const lastName = professional.user?.lastName || "";
+    const fullName = `${firstName} ${lastName}`.trim();
+    const city = professional.city || "";
+    const specialty = professional.specialty || "";
 
-      return (
-        fullName
-          .toLowerCase()
-          .includes(search.toLowerCase()) ||
-        professional.city
-          .toLowerCase()
-          .includes(search.toLowerCase()) ||
-        professional.specialty
-          .toLowerCase()
-          .includes(search.toLowerCase())
-      );
-    });
+    return (
+      fullName.toLowerCase().includes(search.toLowerCase()) ||
+      city.toLowerCase().includes(search.toLowerCase()) ||
+      specialty.toLowerCase().includes(search.toLowerCase())
+    );
+  });
 
   return (
     <div>

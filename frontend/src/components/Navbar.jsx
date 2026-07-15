@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+// Permet de naviguer dans le menu
 export default function Navbar() {
   const { user, logout } = useAuth();
 

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import axios from "../../api/axios";
 import CourseCard from "../CourseCard";
 
+// Ce composant récupère la liste de 3 cours depuis l'API pour la landing page
 export default function FeaturedCoursesSection() {
   const [courses, setCourses] = useState([]);
 

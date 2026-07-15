@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "../../api/axios";
 
+// Formulaire réutilisable servant à la fois pour la création et l'édition d'un cours.
 export default function ProfessionalForm({
   initialValues = {},
   onSubmit,
