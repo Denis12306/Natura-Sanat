@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { getCourseById } from "../../api/courses";
 import { useAuth } from "../../context/AuthContext";
+import CommentList from "../../components/CommentList";
 
 export default function CourseDetailPage() {
   const { id } = useParams();
@@ -141,7 +142,7 @@ export default function CourseDetailPage() {
           {course.price !== undefined ? `${course.price} €` : "Prix non renseigné"}
         </p>
 
-        {user && (user.role === "professional" || user.role === "admin") && (
+        {user && (user.role === "admin") && (
           <button
             onClick={handleUpdatePrice}
             className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg transition duration-200"
@@ -168,6 +169,7 @@ export default function CourseDetailPage() {
           </button>
         )}
       </div>
+      <CommentList targetType="Course" targetId={id} />
     </div>
   );
 }

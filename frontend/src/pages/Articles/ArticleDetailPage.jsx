@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
+import CommentList from "../../components/CommentList";
 
 export default function ArticleDetailPage() {
   const { id } = useParams();
@@ -71,6 +72,7 @@ export default function ArticleDetailPage() {
           )}
         </div>
       )}
+      <CommentList targetType="Article" targetId={id} />
     </div>
   );
 }

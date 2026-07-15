@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import LoadingSpinner from "../../components/common/LoadingSpinner"
+import CommentList from "../../components/CommentList";
 
 // Page de détail d'un professionnel (affiche sa bio, ses spécialités et ses coordonnées)
 export default function ProfessionalDetailPage() {
@@ -87,6 +88,7 @@ export default function ProfessionalDetailPage() {
           </button>
         </div>
       )}
+      <CommentList targetType="Professional" targetId={id} />
     </div>
   );
 }
