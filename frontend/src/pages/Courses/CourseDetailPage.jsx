@@ -150,7 +150,7 @@ export default function CourseDetailPage() {
           </button>
         )}
 
-        {canEdit && (
+        {user && canEdit && (
           <Link
             to={`/courses/edit/${id}`}
             className="text-sm bg-green-100 hover:bg-green-200 text-green-700 font-semibold py-2 px-4 rounded-lg transition duration-200"
@@ -159,7 +159,7 @@ export default function CourseDetailPage() {
           </Link>
         )}
 
-        {isAdmin && (
+        {user && isAdmin && (
           <button
             onClick={handleDelete}
             className="text-sm bg-red-100 hover:bg-red-200 text-red-600 font-semibold py-2 px-4 rounded-lg transition duration-200"

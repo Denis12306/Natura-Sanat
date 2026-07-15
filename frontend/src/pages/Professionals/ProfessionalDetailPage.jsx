@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
+import LoadingSpinner from "../../components/common/LoadingSpinner"
 
 // Page de détail d'un professionnel (affiche sa bio, ses spécialités et ses coordonnées)
 export default function ProfessionalDetailPage() {

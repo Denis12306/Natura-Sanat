@@ -37,19 +37,19 @@ const createArticle = async (data, authorId, file) => {
 
 // Obtenir l'article
 const getArticles = async () => {
-  return Article.find().populate("author", "firstName lastName");
+  return Article.find().populate("author", "_id firstName lastName");
 };
 
 // Obtenir l'article par l'ID
 const getArticleById = async (id) => {
-  return Article.findById(id).populate("author", "firstName lastName");
+  return Article.findById(id).populate("author", "_id firstName lastName");
 };
 
 // Obtenir mon article
 const getMyArticles = async (userId) => {
   return Article.find({ author: userId }).populate(
     "author",
-    "firstName lastName"
+    "_id firstName lastName"
   );
 };
 

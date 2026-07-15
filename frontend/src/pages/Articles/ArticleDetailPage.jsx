@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../../api/axios";
+import { useAuth } from "../../context/AuthContext";
 
 export default function ArticleDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
@@ -33,6 +35,10 @@ export default function ArticleDetailPage() {
 
   if (!article) return <p>Chargement...</p>;
 
+  const isAdmin = user?.role === "admin";
+  const isOwner = article.author?._id === user?._id;
+  const canEdit = isOwner || isAdmin;
+
   return (
     <div className="mx-auto max-w-4xl space-y-8 p-10">
       {article.image && (
@@ -46,20 +52,25 @@ export default function ArticleDetailPage() {
       <p className="whitespace-pre-line text-lg leading-8 text-gray-700">
         {article.content}
       </p>
-      <div className="flex gap-4">
-        <Link
-          to={`/articles/edit/${id}`}
-          className="rounded-2xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition"
-        >
-          Modifier
-        </Link>
-        <button
-          onClick={handleDelete}
-          className="rounded-2xl bg-red-100 px-6 py-3 font-semibold text-red-600 hover:bg-red-200 transition"
-        >
-          Supprimer
-        </button>
-      </div>
+      {user && canEdit && (
+        <div className="flex gap-4">
+          <Link
+            to={`/articles/edit/${id}`}
+            className="rounded-2xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition"
+          >
+            Modifier
+          </Link>
+
+          {isAdmin && (
+            <button
+              onClick={handleDelete}
+              className="rounded-2xl bg-red-100 px-6 py-3 font-semibold text-red-600 hover:bg-red-200 transition"
+            >
+              Supprimer
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
