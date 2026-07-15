@@ -45,7 +45,7 @@ export default function HeroSection() {
             <img
               src={images.hero}
               alt="Santé naturelle et naturopathie"
-              className="w-full h-100 object-cover rounded-3xl"
+              className="w-[116%] ml-[4%] h-130 object-cover rounded-3xl"
             />
             <div className="absolute -bottom-1 -left-5 bg-[#5D7C50] text-center text-white p-5 rounded-3xl shadow-lg max-w-45 hidden xl:block -rotate-3">
               <p className="text-xs font-semibold uppercase tracking-widest opacity-80">Approche</p>
